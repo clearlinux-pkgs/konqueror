@@ -6,18 +6,18 @@
 #
 Name     : konqueror
 Version  : 18.08.0
-Release  : 2
+Release  : 3
 URL      : https://download.kde.org/stable/applications/18.08.0/src/konqueror-18.08.0.tar.xz
 Source0  : https://download.kde.org/stable/applications/18.08.0/src/konqueror-18.08.0.tar.xz
 Source99 : https://download.kde.org/stable/applications/18.08.0/src/konqueror-18.08.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GFDL-1.2 GFDL-1.3 GPL-2.0 LGPL-2.0 LGPL-2.1
-Requires: konqueror-bin
-Requires: konqueror-lib
-Requires: konqueror-data
-Requires: konqueror-license
-Requires: konqueror-locales
+Requires: konqueror-bin = %{version}-%{release}
+Requires: konqueror-data = %{version}-%{release}
+Requires: konqueror-lib = %{version}-%{release}
+Requires: konqueror-license = %{version}-%{release}
+Requires: konqueror-locales = %{version}-%{release}
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
 BuildRequires : kactivities-dev
@@ -25,7 +25,7 @@ BuildRequires : kdesu-dev
 BuildRequires : khtml-dev
 BuildRequires : kjs-dev
 BuildRequires : libX11-dev libICE-dev libSM-dev libXau-dev libXcomposite-dev libXcursor-dev libXdamage-dev libXdmcp-dev libXext-dev libXfixes-dev libXft-dev libXi-dev libXinerama-dev libXi-dev libXmu-dev libXpm-dev libXrandr-dev libXrender-dev libXres-dev libXScrnSaver-dev libXt-dev libXtst-dev libXv-dev libXxf86misc-dev libXxf86vm-dev
-BuildRequires : qtbase-dev qtbase-extras mesa-dev
+BuildRequires : qtbase-dev mesa-dev
 BuildRequires : qtwebengine-dev
 BuildRequires : qtx11extras-dev
 BuildRequires : zlib-dev
@@ -37,8 +37,8 @@ sight seem to be a rather weird combination.
 %package bin
 Summary: bin components for the konqueror package.
 Group: Binaries
-Requires: konqueror-data
-Requires: konqueror-license
+Requires: konqueror-data = %{version}-%{release}
+Requires: konqueror-license = %{version}-%{release}
 
 %description bin
 bin components for the konqueror package.
@@ -55,10 +55,10 @@ data components for the konqueror package.
 %package dev
 Summary: dev components for the konqueror package.
 Group: Development
-Requires: konqueror-lib
-Requires: konqueror-bin
-Requires: konqueror-data
-Provides: konqueror-devel
+Requires: konqueror-lib = %{version}-%{release}
+Requires: konqueror-bin = %{version}-%{release}
+Requires: konqueror-data = %{version}-%{release}
+Provides: konqueror-devel = %{version}-%{release}
 
 %description dev
 dev components for the konqueror package.
@@ -75,8 +75,8 @@ doc components for the konqueror package.
 %package lib
 Summary: lib components for the konqueror package.
 Group: Libraries
-Requires: konqueror-data
-Requires: konqueror-license
+Requires: konqueror-data = %{version}-%{release}
+Requires: konqueror-license = %{version}-%{release}
 
 %description lib
 lib components for the konqueror package.
@@ -106,26 +106,26 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1535431583
-mkdir clr-build
+export SOURCE_DATE_EPOCH=1544551761
+mkdir -p clr-build
 pushd clr-build
 %cmake ..
-make  %{?_smp_mflags}
+make  %{?_smp_mflags} VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1535431583
+export SOURCE_DATE_EPOCH=1544551761
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/konqueror
-cp COPYING %{buildroot}/usr/share/doc/konqueror/COPYING
-cp COPYING.DOC %{buildroot}/usr/share/doc/konqueror/COPYING.DOC
-cp COPYING.LIB %{buildroot}/usr/share/doc/konqueror/COPYING.LIB
-cp libkonq/COPYING %{buildroot}/usr/share/doc/konqueror/libkonq_COPYING
-cp libkonq/COPYING.LIB %{buildroot}/usr/share/doc/konqueror/libkonq_COPYING.LIB
-cp plugins/COPYING %{buildroot}/usr/share/doc/konqueror/plugins_COPYING
-cp plugins/COPYING.DOC %{buildroot}/usr/share/doc/konqueror/plugins_COPYING.DOC
-cp plugins/COPYING.LIB %{buildroot}/usr/share/doc/konqueror/plugins_COPYING.LIB
-cp webenginepart/COPYING.LIB %{buildroot}/usr/share/doc/konqueror/webenginepart_COPYING.LIB
+mkdir -p %{buildroot}/usr/share/package-licenses/konqueror
+cp COPYING %{buildroot}/usr/share/package-licenses/konqueror/COPYING
+cp COPYING.DOC %{buildroot}/usr/share/package-licenses/konqueror/COPYING.DOC
+cp COPYING.LIB %{buildroot}/usr/share/package-licenses/konqueror/COPYING.LIB
+cp libkonq/COPYING %{buildroot}/usr/share/package-licenses/konqueror/libkonq_COPYING
+cp libkonq/COPYING.LIB %{buildroot}/usr/share/package-licenses/konqueror/libkonq_COPYING.LIB
+cp plugins/COPYING %{buildroot}/usr/share/package-licenses/konqueror/plugins_COPYING
+cp plugins/COPYING.DOC %{buildroot}/usr/share/package-licenses/konqueror/plugins_COPYING.DOC
+cp plugins/COPYING.LIB %{buildroot}/usr/share/package-licenses/konqueror/plugins_COPYING.LIB
+cp webenginepart/COPYING.LIB %{buildroot}/usr/share/package-licenses/konqueror/webenginepart_COPYING.LIB
 pushd clr-build
 %make_install
 popd
@@ -313,8 +313,6 @@ popd
 /usr/lib64/cmake/KF5Konq/KF5KonqTargets-relwithdebinfo.cmake
 /usr/lib64/cmake/KF5Konq/KF5KonqTargets.cmake
 /usr/lib64/libKF5Konq.so
-/usr/lib64/libkdeinit5_kfmclient.so
-/usr/lib64/libkdeinit5_konqueror.so
 /usr/lib64/libkwebenginepartlib.so
 
 %files doc
@@ -829,6 +827,8 @@ popd
 %defattr(-,root,root,-)
 /usr/lib64/libKF5Konq.so.5.97.0
 /usr/lib64/libKF5Konq.so.6
+/usr/lib64/libkdeinit5_kfmclient.so
+/usr/lib64/libkdeinit5_konqueror.so
 /usr/lib64/libkonquerorprivate.so.5
 /usr/lib64/libkonquerorprivate.so.5.0.97
 /usr/lib64/qt5/plugins/akregatorkonqfeedicon.so
@@ -856,16 +856,16 @@ popd
 /usr/lib64/qt5/plugins/webarchivethumbnail.so
 
 %files license
-%defattr(-,root,root,-)
-/usr/share/doc/konqueror/COPYING
-/usr/share/doc/konqueror/COPYING.DOC
-/usr/share/doc/konqueror/COPYING.LIB
-/usr/share/doc/konqueror/libkonq_COPYING
-/usr/share/doc/konqueror/libkonq_COPYING.LIB
-/usr/share/doc/konqueror/plugins_COPYING
-/usr/share/doc/konqueror/plugins_COPYING.DOC
-/usr/share/doc/konqueror/plugins_COPYING.LIB
-/usr/share/doc/konqueror/webenginepart_COPYING.LIB
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/konqueror/COPYING
+/usr/share/package-licenses/konqueror/COPYING.DOC
+/usr/share/package-licenses/konqueror/COPYING.LIB
+/usr/share/package-licenses/konqueror/libkonq_COPYING
+/usr/share/package-licenses/konqueror/libkonq_COPYING.LIB
+/usr/share/package-licenses/konqueror/plugins_COPYING
+/usr/share/package-licenses/konqueror/plugins_COPYING.DOC
+/usr/share/package-licenses/konqueror/plugins_COPYING.LIB
+/usr/share/package-licenses/konqueror/webenginepart_COPYING.LIB
 
 %files locales -f adblock.lang -f akregator_konqplugin.lang -f autorefresh.lang -f babelfish.lang -f dirfilterplugin.lang -f domtreeviewer.lang -f fsview.lang -f imgalleryplugin.lang -f kcmbookmarks.lang -f kcmkonq.lang -f kcmkonqhtml.lang -f kcmperformance.lang -f kfmclient.lang -f khtmlsettingsplugin.lang -f khtmltts.lang -f konqueror.lang -f kshellcmdplugin.lang -f libkonq.lang -f mf_konqplugin.lang -f minitoolsplugin.lang -f rellinks.lang -f searchbarplugin.lang -f uachangerplugin.lang -f validatorsplugin.lang -f webarchiver.lang -f webenginepart.lang
 %defattr(-,root,root,-)
