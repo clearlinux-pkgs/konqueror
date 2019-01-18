@@ -6,7 +6,7 @@
 #
 Name     : konqueror
 Version  : 18.08.0
-Release  : 4
+Release  : 5
 URL      : https://download.kde.org/stable/applications/18.08.0/src/konqueror-18.08.0.tar.xz
 Source0  : https://download.kde.org/stable/applications/18.08.0/src/konqueror-18.08.0.tar.xz
 Source99 : https://download.kde.org/stable/applications/18.08.0/src/konqueror-18.08.0.tar.xz.sig
