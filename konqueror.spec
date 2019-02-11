@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : konqueror
-Version  : 18.08.0
-Release  : 5
-URL      : https://download.kde.org/stable/applications/18.08.0/src/konqueror-18.08.0.tar.xz
-Source0  : https://download.kde.org/stable/applications/18.08.0/src/konqueror-18.08.0.tar.xz
-Source99 : https://download.kde.org/stable/applications/18.08.0/src/konqueror-18.08.0.tar.xz.sig
+Version  : 18.12.2
+Release  : 6
+URL      : https://download.kde.org/stable/applications/18.12.2/src/konqueror-18.12.2.tar.xz
+Source0  : https://download.kde.org/stable/applications/18.12.2/src/konqueror-18.12.2.tar.xz
+Source99 : https://download.kde.org/stable/applications/18.12.2/src/konqueror-18.12.2.tar.xz.sig
 Summary  : KDE File Manager & Web Browser
 Group    : Development/Tools
 License  : GFDL-1.2 GFDL-1.3 GPL-2.0 LGPL-2.0 LGPL-2.1
@@ -27,7 +27,6 @@ BuildRequires : kjs-dev
 BuildRequires : libX11-dev libICE-dev libSM-dev libXau-dev libXcomposite-dev libXcursor-dev libXdamage-dev libXdmcp-dev libXext-dev libXfixes-dev libXft-dev libXi-dev libXinerama-dev libXi-dev libXmu-dev libXpm-dev libXrandr-dev libXrender-dev libXres-dev libXScrnSaver-dev libXt-dev libXtst-dev libXv-dev libXxf86misc-dev libXxf86vm-dev
 BuildRequires : qtbase-dev mesa-dev
 BuildRequires : qtwebengine-dev
-BuildRequires : qtx11extras-dev
 BuildRequires : zlib-dev
 
 %description
@@ -111,14 +110,14 @@ locales components for the konqueror package.
 
 
 %prep
-%setup -q -n konqueror-18.08.0
+%setup -q -n konqueror-18.12.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1547422942
+export SOURCE_DATE_EPOCH=1549920455
 mkdir -p clr-build
 pushd clr-build
 %cmake ..
@@ -126,7 +125,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1547422942
+export SOURCE_DATE_EPOCH=1549920455
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/konqueror
 cp COPYING %{buildroot}/usr/share/package-licenses/konqueror/COPYING
@@ -229,8 +228,8 @@ popd
 /usr/share/icons/hicolor/64x64/actions/validators.png
 /usr/share/icons/hicolor/64x64/apps/konqueror.png
 /usr/share/icons/hicolor/64x64/apps/webengine.png
-/usr/share/icons/oxygen/scalable/actions/htmlvalidator.svgz
-/usr/share/icons/oxygen/scalable/actions/validators.svgz
+/usr/share/icons/hicolor/scalable/actions/htmlvalidator.svgz
+/usr/share/icons/hicolor/scalable/actions/validators.svgz
 /usr/share/kcmcss/template.css
 /usr/share/kcontrol/pics/onlyone.png
 /usr/share/kcontrol/pics/overlapping.png
@@ -268,7 +267,7 @@ popd
 /usr/share/konqueror/icons/hicolor/32x32/actions/google.png
 /usr/share/konqueror/icons/hicolor/48x48/actions/google.png
 /usr/share/konqueror/icons/hicolor/64x64/actions/google.png
-/usr/share/konqueror/icons/oxygen/scalable/actions/google.svgz
+/usr/share/konqueror/icons/hicolor/scalable/actions/google.svgz
 /usr/share/konqueror/kpartplugins/searchbar.desktop
 /usr/share/konqueror/kpartplugins/searchbar.rc
 /usr/share/konqueror/opensearch/google.xml
@@ -307,6 +306,18 @@ popd
 /usr/share/kxmlgui5/webenginepart/webenginepart.rc
 /usr/share/metainfo/org.kde.konqueror.appdata.xml
 /usr/share/webenginepart/error.html
+/usr/share/webenginepart/kpartplugins/akregator_konqfeedicon.desktop
+/usr/share/webenginepart/kpartplugins/akregator_konqfeedicon.rc
+/usr/share/webenginepart/kpartplugins/autorefresh.desktop
+/usr/share/webenginepart/kpartplugins/autorefresh.rc
+/usr/share/webenginepart/kpartplugins/khtmlsettingsplugin.desktop
+/usr/share/webenginepart/kpartplugins/khtmlsettingsplugin.rc
+/usr/share/webenginepart/kpartplugins/khtmltts.desktop
+/usr/share/webenginepart/kpartplugins/khtmltts.rc
+/usr/share/webenginepart/kpartplugins/plugin_babelfish.rc
+/usr/share/webenginepart/kpartplugins/plugin_translator.desktop
+/usr/share/webenginepart/kpartplugins/plugin_validators.desktop
+/usr/share/webenginepart/kpartplugins/plugin_validators.rc
 /usr/share/xdg/akregatorplugin.categories
 /usr/share/xdg/autostart/konqy_preload.desktop
 /usr/share/xdg/konqueror.categories
@@ -347,15 +358,13 @@ popd
 /usr/share/doc/HTML/ca/kcontrol5/khtml-java-js/index.docbook
 /usr/share/doc/HTML/ca/kcontrol5/performance/index.cache.bz2
 /usr/share/doc/HTML/ca/kcontrol5/performance/index.docbook
-/usr/share/doc/HTML/ca/konqueror/folders.png
 /usr/share/doc/HTML/ca/konqueror/format-font-size-less.png
 /usr/share/doc/HTML/ca/konqueror/format-font-size-more.png
+/usr/share/doc/HTML/ca/konqueror/go-jump.png
 /usr/share/doc/HTML/ca/konqueror/index.cache.bz2
 /usr/share/doc/HTML/ca/konqueror/index.docbook
 /usr/share/doc/HTML/ca/konqueror/konqorg.png
-/usr/share/doc/HTML/ca/konqueror/look.png
 /usr/share/doc/HTML/ca/konqueror/reset.png
-/usr/share/doc/HTML/ca/konqueror/thumbnails.png
 /usr/share/doc/HTML/ca/konqueror/viewproperties-dialog.png
 /usr/share/doc/HTML/da/konqueror/basics.docbook
 /usr/share/doc/HTML/da/konqueror/bookmarks.docbook
@@ -421,8 +430,6 @@ popd
 /usr/share/doc/HTML/el/konqueror/faq.docbook
 /usr/share/doc/HTML/el/konqueror/filemanager.docbook
 /usr/share/doc/HTML/el/konqueror/folders.png
-/usr/share/doc/HTML/el/konqueror/format-font-size-less.png
-/usr/share/doc/HTML/el/konqueror/format-font-size-more.png
 /usr/share/doc/HTML/el/konqueror/index.cache.bz2
 /usr/share/doc/HTML/el/konqueror/index.docbook
 /usr/share/doc/HTML/el/konqueror/introduction.docbook
@@ -431,7 +438,6 @@ popd
 /usr/share/doc/HTML/el/konqueror/parts.png
 /usr/share/doc/HTML/el/konqueror/path-complete.docbook
 /usr/share/doc/HTML/el/konqueror/plugins.docbook
-/usr/share/doc/HTML/el/konqueror/reset.png
 /usr/share/doc/HTML/el/konqueror/save-settings.docbook
 /usr/share/doc/HTML/el/konqueror/shortcut1.png
 /usr/share/doc/HTML/el/konqueror/shortcut2.png
