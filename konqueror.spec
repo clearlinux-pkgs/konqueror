@@ -5,12 +5,12 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : konqueror
-Version  : 18.12.2
-Release  : 6
-URL      : https://download.kde.org/stable/applications/18.12.2/src/konqueror-18.12.2.tar.xz
-Source0  : https://download.kde.org/stable/applications/18.12.2/src/konqueror-18.12.2.tar.xz
-Source99 : https://download.kde.org/stable/applications/18.12.2/src/konqueror-18.12.2.tar.xz.sig
-Summary  : KDE File Manager & Web Browser
+Version  : 18.12.3
+Release  : 7
+URL      : https://download.kde.org/stable/applications/18.12.3/src/konqueror-18.12.3.tar.xz
+Source0  : https://download.kde.org/stable/applications/18.12.3/src/konqueror-18.12.3.tar.xz
+Source99 : https://download.kde.org/stable/applications/18.12.3/src/konqueror-18.12.3.tar.xz.sig
+Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GFDL-1.2 GFDL-1.3 GPL-2.0 LGPL-2.0 LGPL-2.1
 Requires: konqueror-bin = %{version}-%{release}
@@ -30,20 +30,8 @@ BuildRequires : qtwebengine-dev
 BuildRequires : zlib-dev
 
 %description
-What's this?
-============
-Josef Weidendorfer
-Josef.Weidendorfer@gmx.de
-FSView is a tool for showing disc utilization in a graphical form, much
-like the UNIX command 'du'. The visualisation type choosen is a treemap.
-Treemaps allow for showing metrics of objects in nested structures, like
-sizes of files and directories on your hard disc, where the the size of
-directories is defined to be the sum of the size of its children.
-Each object is represented by a rectangle which area is proportional to
-its metric. The metric must have the property that the sum of the
-children's metric of some object is equal or smaller than the objects
-metric. This holds true for the file/directory sizes in the use case of
-FSView.
+This module contains a combination of configuration items which at first
+sight seem to be a rather weird combination.
 
 %package bin
 Summary: bin components for the konqueror package.
@@ -110,22 +98,23 @@ locales components for the konqueror package.
 
 
 %prep
-%setup -q -n konqueror-18.12.2
+%setup -q -n konqueror-18.12.3
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1549920455
+export SOURCE_DATE_EPOCH=1552004601
 mkdir -p clr-build
 pushd clr-build
+export LDFLAGS="${LDFLAGS} -fno-lto"
 %cmake ..
-make  %{?_smp_mflags}
+make  %{?_smp_mflags} VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1549920455
+export SOURCE_DATE_EPOCH=1552004601
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/konqueror
 cp COPYING %{buildroot}/usr/share/package-licenses/konqueror/COPYING
