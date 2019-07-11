@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : konqueror
-Version  : 19.04.2
-Release  : 11
-URL      : https://download.kde.org/stable/applications/19.04.2/src/konqueror-19.04.2.tar.xz
-Source0  : https://download.kde.org/stable/applications/19.04.2/src/konqueror-19.04.2.tar.xz
-Source99 : https://download.kde.org/stable/applications/19.04.2/src/konqueror-19.04.2.tar.xz.sig
+Version  : 19.04.3
+Release  : 12
+URL      : https://download.kde.org/stable/applications/19.04.3/src/konqueror-19.04.3.tar.xz
+Source0  : https://download.kde.org/stable/applications/19.04.3/src/konqueror-19.04.3.tar.xz
+Source99 : https://download.kde.org/stable/applications/19.04.3/src/konqueror-19.04.3.tar.xz.sig
 Summary  : KDE File Manager & Web Browser
 Group    : Development/Tools
 License  : GFDL-1.2 GFDL-1.3 GPL-2.0 LGPL-2.1
@@ -112,16 +112,17 @@ locales components for the konqueror package.
 
 
 %prep
-%setup -q -n konqueror-19.04.2
+%setup -q -n konqueror-19.04.3
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1559898316
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1562878112
 mkdir -p clr-build
 pushd clr-build
+export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
@@ -130,11 +131,11 @@ export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
 export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %cmake ..
-make  %{?_smp_mflags}
+make  %{?_smp_mflags} VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1559898316
+export SOURCE_DATE_EPOCH=1562878112
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/konqueror
 cp COPYING %{buildroot}/usr/share/package-licenses/konqueror/COPYING
@@ -522,24 +523,17 @@ popd
 /usr/share/doc/HTML/es/konqueror/basics.docbook
 /usr/share/doc/HTML/es/konqueror/bookmarks.docbook
 /usr/share/doc/HTML/es/konqueror/browser.docbook
-/usr/share/doc/HTML/es/konqueror/cmndline.png
 /usr/share/doc/HTML/es/konqueror/commands.docbook
 /usr/share/doc/HTML/es/konqueror/config.docbook
 /usr/share/doc/HTML/es/konqueror/credits.docbook
-/usr/share/doc/HTML/es/konqueror/dirtree.png
-/usr/share/doc/HTML/es/konqueror/dragdrop.png
 /usr/share/doc/HTML/es/konqueror/faq.docbook
 /usr/share/doc/HTML/es/konqueror/filemanager.docbook
 /usr/share/doc/HTML/es/konqueror/index.cache.bz2
 /usr/share/doc/HTML/es/konqueror/index.docbook
 /usr/share/doc/HTML/es/konqueror/introduction.docbook
-/usr/share/doc/HTML/es/konqueror/konqorg.png
-/usr/share/doc/HTML/es/konqueror/parts.png
 /usr/share/doc/HTML/es/konqueror/path-complete.docbook
 /usr/share/doc/HTML/es/konqueror/plugins.docbook
 /usr/share/doc/HTML/es/konqueror/save-settings.docbook
-/usr/share/doc/HTML/es/konqueror/shortcut1.png
-/usr/share/doc/HTML/es/konqueror/shortcut2.png
 /usr/share/doc/HTML/es/konqueror/sidebar.docbook
 /usr/share/doc/HTML/es/konqueror/view-extensions.docbook
 /usr/share/doc/HTML/et/kcontrol5/bookmarks/index.cache.bz2
