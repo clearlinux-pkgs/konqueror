@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : konqueror
-Version  : 19.04.3
-Release  : 12
-URL      : https://download.kde.org/stable/applications/19.04.3/src/konqueror-19.04.3.tar.xz
-Source0  : https://download.kde.org/stable/applications/19.04.3/src/konqueror-19.04.3.tar.xz
-Source99 : https://download.kde.org/stable/applications/19.04.3/src/konqueror-19.04.3.tar.xz.sig
+Version  : 19.08.0
+Release  : 13
+URL      : https://download.kde.org/stable/applications/19.08.0/src/konqueror-19.08.0.tar.xz
+Source0  : https://download.kde.org/stable/applications/19.08.0/src/konqueror-19.08.0.tar.xz
+Source1 : https://download.kde.org/stable/applications/19.08.0/src/konqueror-19.08.0.tar.xz.sig
 Summary  : KDE File Manager & Web Browser
 Group    : Development/Tools
 License  : GFDL-1.2 GFDL-1.3 GPL-2.0 LGPL-2.1
@@ -112,16 +112,17 @@ locales components for the konqueror package.
 
 
 %prep
-%setup -q -n konqueror-19.04.3
+%setup -q -n konqueror-19.08.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1562878112
+export SOURCE_DATE_EPOCH=1565905977
 mkdir -p clr-build
 pushd clr-build
+# -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -135,7 +136,7 @@ make  %{?_smp_mflags} VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1562878112
+export SOURCE_DATE_EPOCH=1565905977
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/konqueror
 cp COPYING %{buildroot}/usr/share/package-licenses/konqueror/COPYING
@@ -315,6 +316,8 @@ popd
 /usr/share/kwebkitpart/kpartplugins/plugin_validators.rc
 /usr/share/kxmlgui5/webenginepart/webenginepart.rc
 /usr/share/metainfo/org.kde.konqueror.appdata.xml
+/usr/share/qlogging-categories5/akregatorplugin.categories
+/usr/share/qlogging-categories5/konqueror.categories
 /usr/share/webenginepart/error.html
 /usr/share/webenginepart/kpartplugins/akregator_konqfeedicon.desktop
 /usr/share/webenginepart/kpartplugins/akregator_konqfeedicon.rc
@@ -328,9 +331,7 @@ popd
 /usr/share/webenginepart/kpartplugins/plugin_translator.desktop
 /usr/share/webenginepart/kpartplugins/plugin_validators.desktop
 /usr/share/webenginepart/kpartplugins/plugin_validators.rc
-/usr/share/xdg/akregatorplugin.categories
 /usr/share/xdg/autostart/konqy_preload.desktop
-/usr/share/xdg/konqueror.categories
 /usr/share/xdg/translaterc
 
 %files dev
