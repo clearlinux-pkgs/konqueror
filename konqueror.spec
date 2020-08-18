@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : konqueror
-Version  : 20.04.2
-Release  : 23
-URL      : https://download.kde.org/stable/release-service/20.04.2/src/konqueror-20.04.2.tar.xz
-Source0  : https://download.kde.org/stable/release-service/20.04.2/src/konqueror-20.04.2.tar.xz
-Source1  : https://download.kde.org/stable/release-service/20.04.2/src/konqueror-20.04.2.tar.xz.sig
+Version  : 20.08.0
+Release  : 24
+URL      : https://download.kde.org/stable/release-service/20.08.0/src/konqueror-20.08.0.tar.xz
+Source0  : https://download.kde.org/stable/release-service/20.08.0/src/konqueror-20.08.0.tar.xz
+Source1  : https://download.kde.org/stable/release-service/20.08.0/src/konqueror-20.08.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GFDL-1.2 GFDL-1.3 GPL-2.0 LGPL-2.1
@@ -101,15 +101,15 @@ locales components for the konqueror package.
 
 
 %prep
-%setup -q -n konqueror-20.04.2
-cd %{_builddir}/konqueror-20.04.2
+%setup -q -n konqueror-20.08.0
+cd %{_builddir}/konqueror-20.08.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1591896410
+export SOURCE_DATE_EPOCH=1597791053
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -121,22 +121,22 @@ export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %cmake ..
-make  %{?_smp_mflags}  VERBOSE=1
+make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1591896410
+export SOURCE_DATE_EPOCH=1597791053
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/konqueror
-cp %{_builddir}/konqueror-20.04.2/COPYING %{buildroot}/usr/share/package-licenses/konqueror/4cc77b90af91e615a64ae04893fdffa7939db84c
-cp %{_builddir}/konqueror-20.04.2/COPYING.DOC %{buildroot}/usr/share/package-licenses/konqueror/e1d31e42d2a477d6def889000aa8ffc251f2354c
-cp %{_builddir}/konqueror-20.04.2/COPYING.LIB %{buildroot}/usr/share/package-licenses/konqueror/01a6b4bf79aca9b556822601186afab86e8c4fbf
-cp %{_builddir}/konqueror-20.04.2/libkonq/COPYING %{buildroot}/usr/share/package-licenses/konqueror/7c203dee3a03037da436df03c4b25b659c073976
-cp %{_builddir}/konqueror-20.04.2/libkonq/COPYING.LIB %{buildroot}/usr/share/package-licenses/konqueror/9a1929f4700d2407c70b507b3b2aaf6226a9543c
-cp %{_builddir}/konqueror-20.04.2/plugins/COPYING %{buildroot}/usr/share/package-licenses/konqueror/7c203dee3a03037da436df03c4b25b659c073976
-cp %{_builddir}/konqueror-20.04.2/plugins/COPYING.DOC %{buildroot}/usr/share/package-licenses/konqueror/bd75d59f9d7d9731bfabdc48ecd19e704d218e38
-cp %{_builddir}/konqueror-20.04.2/plugins/COPYING.LIB %{buildroot}/usr/share/package-licenses/konqueror/9a1929f4700d2407c70b507b3b2aaf6226a9543c
-cp %{_builddir}/konqueror-20.04.2/webenginepart/COPYING.LIB %{buildroot}/usr/share/package-licenses/konqueror/6c3f140c3d22440a55cccd8dd7dd348115e67968
+cp %{_builddir}/konqueror-20.08.0/COPYING %{buildroot}/usr/share/package-licenses/konqueror/4cc77b90af91e615a64ae04893fdffa7939db84c
+cp %{_builddir}/konqueror-20.08.0/COPYING.DOC %{buildroot}/usr/share/package-licenses/konqueror/e1d31e42d2a477d6def889000aa8ffc251f2354c
+cp %{_builddir}/konqueror-20.08.0/COPYING.LIB %{buildroot}/usr/share/package-licenses/konqueror/01a6b4bf79aca9b556822601186afab86e8c4fbf
+cp %{_builddir}/konqueror-20.08.0/libkonq/COPYING %{buildroot}/usr/share/package-licenses/konqueror/7c203dee3a03037da436df03c4b25b659c073976
+cp %{_builddir}/konqueror-20.08.0/libkonq/COPYING.LIB %{buildroot}/usr/share/package-licenses/konqueror/9a1929f4700d2407c70b507b3b2aaf6226a9543c
+cp %{_builddir}/konqueror-20.08.0/plugins/COPYING %{buildroot}/usr/share/package-licenses/konqueror/7c203dee3a03037da436df03c4b25b659c073976
+cp %{_builddir}/konqueror-20.08.0/plugins/COPYING.DOC %{buildroot}/usr/share/package-licenses/konqueror/bd75d59f9d7d9731bfabdc48ecd19e704d218e38
+cp %{_builddir}/konqueror-20.08.0/plugins/COPYING.LIB %{buildroot}/usr/share/package-licenses/konqueror/9a1929f4700d2407c70b507b3b2aaf6226a9543c
+cp %{_builddir}/konqueror-20.08.0/webenginepart/COPYING.LIB %{buildroot}/usr/share/package-licenses/konqueror/6c3f140c3d22440a55cccd8dd7dd348115e67968
 pushd clr-build
 %make_install
 popd
@@ -186,7 +186,6 @@ popd
 /usr/share/dolphinpart/kpartplugins/kimgalleryplugin.rc
 /usr/share/dolphinpart/kpartplugins/kshellcmdplugin.desktop
 /usr/share/dolphinpart/kpartplugins/kshellcmdplugin.rc
-/usr/share/fsview/fsview_part.rc
 /usr/share/icons/hicolor/128x128/apps/konqueror.png
 /usr/share/icons/hicolor/128x128/apps/webengine.png
 /usr/share/icons/hicolor/16x16/actions/babelfish.png
@@ -219,6 +218,21 @@ popd
 /usr/share/khtml/kpartplugins/khtmltts.rc
 /usr/share/khtml/kpartplugins/plugin_babelfish.rc
 /usr/share/khtml/kpartplugins/plugin_translator.desktop
+/usr/share/khtml/kpartplugins/uachangerplugin.desktop
+/usr/share/khtml/kpartplugins/uachangerplugin.rc
+/usr/share/konqsidebartng/entries/bookmarks.desktop
+/usr/share/konqsidebartng/entries/fonts.desktop
+/usr/share/konqsidebartng/entries/history.desktop
+/usr/share/konqsidebartng/entries/home.desktop
+/usr/share/konqsidebartng/entries/places.desktop
+/usr/share/konqsidebartng/entries/remote.desktop
+/usr/share/konqsidebartng/entries/root.desktop
+/usr/share/konqsidebartng/entries/services.desktop
+/usr/share/konqsidebartng/entries/settings.desktop
+/usr/share/konqsidebartng/plugins/konqsidebar_bookmarks.desktop
+/usr/share/konqsidebartng/plugins/konqsidebar_history.desktop
+/usr/share/konqsidebartng/plugins/konqsidebar_places.desktop
+/usr/share/konqsidebartng/plugins/konqsidebar_tree.desktop
 /usr/share/konqueror/about/intro.html
 /usr/share/konqueror/about/konq.css
 /usr/share/konqueror/about/launch.html
@@ -244,6 +258,7 @@ popd
 /usr/share/kservices5/bookmarks.desktop
 /usr/share/kservices5/filebehavior.desktop
 /usr/share/kservices5/fsview_part.desktop
+/usr/share/kservices5/kcmhistory.desktop
 /usr/share/kservices5/kcmkonqyperformance.desktop
 /usr/share/kservices5/kcmperformance.desktop
 /usr/share/kservices5/khtml_appearance.desktop
@@ -251,6 +266,7 @@ popd
 /usr/share/kservices5/khtml_filter.desktop
 /usr/share/kservices5/khtml_general.desktop
 /usr/share/kservices5/khtml_java_js.desktop
+/usr/share/kservices5/konq_sidebartng.desktop
 /usr/share/kservices5/org.kde.konqueror.desktop
 /usr/share/kservices5/webenginepart.desktop
 /usr/share/kwebkitpart/kpartplugins/akregator_konqfeedicon.desktop
@@ -263,9 +279,13 @@ popd
 /usr/share/kwebkitpart/kpartplugins/khtmltts.rc
 /usr/share/kwebkitpart/kpartplugins/plugin_babelfish.rc
 /usr/share/kwebkitpart/kpartplugins/plugin_translator.desktop
+/usr/share/kwebkitpart/kpartplugins/uachangerplugin.desktop
+/usr/share/kwebkitpart/kpartplugins/uachangerplugin.rc
+/usr/share/kxmlgui5/fsview/fsview_part.rc
 /usr/share/kxmlgui5/webenginepart/webenginepart.rc
 /usr/share/metainfo/org.kde.konqueror.appdata.xml
 /usr/share/qlogging-categories5/akregatorplugin.categories
+/usr/share/qlogging-categories5/fsview.categories
 /usr/share/qlogging-categories5/konqueror.categories
 /usr/share/webenginepart/error.html
 /usr/share/webenginepart/kpartplugins/akregator_konqfeedicon.desktop
@@ -278,7 +298,10 @@ popd
 /usr/share/webenginepart/kpartplugins/khtmltts.rc
 /usr/share/webenginepart/kpartplugins/plugin_babelfish.rc
 /usr/share/webenginepart/kpartplugins/plugin_translator.desktop
+/usr/share/webenginepart/kpartplugins/uachangerplugin.desktop
+/usr/share/webenginepart/kpartplugins/uachangerplugin.rc
 /usr/share/xdg/autostart/konqy_preload.desktop
+/usr/share/xdg/konqsidebartngrc
 /usr/share/xdg/translaterc
 
 %files dev
@@ -289,11 +312,13 @@ popd
 /usr/include/KF5/konq_popupmenu.h
 /usr/include/KF5/konq_version.h
 /usr/include/KF5/libkonq_export.h
+/usr/include/konqsidebarplugin.h
 /usr/lib64/cmake/KF5Konq/KF5KonqConfig.cmake
 /usr/lib64/cmake/KF5Konq/KF5KonqConfigVersion.cmake
 /usr/lib64/cmake/KF5Konq/KF5KonqTargets-relwithdebinfo.cmake
 /usr/lib64/cmake/KF5Konq/KF5KonqTargets.cmake
 /usr/lib64/libKF5Konq.so
+/usr/lib64/libkonqsidebarplugin.so
 /usr/lib64/libkwebenginepart.so
 
 %files doc
@@ -316,13 +341,9 @@ popd
 /usr/share/doc/HTML/ca/kcontrol5/khtml-java-js/index.docbook
 /usr/share/doc/HTML/ca/kcontrol5/performance/index.cache.bz2
 /usr/share/doc/HTML/ca/kcontrol5/performance/index.docbook
-/usr/share/doc/HTML/ca/konqueror/format-font-size-less.png
-/usr/share/doc/HTML/ca/konqueror/format-font-size-more.png
-/usr/share/doc/HTML/ca/konqueror/go-jump.png
 /usr/share/doc/HTML/ca/konqueror/index.cache.bz2
 /usr/share/doc/HTML/ca/konqueror/index.docbook
 /usr/share/doc/HTML/ca/konqueror/konqorg.png
-/usr/share/doc/HTML/ca/konqueror/reset.png
 /usr/share/doc/HTML/ca/konqueror/viewproperties-dialog.png
 /usr/share/doc/HTML/da/konqueror/basics.docbook
 /usr/share/doc/HTML/da/konqueror/bookmarks.docbook
@@ -502,6 +523,8 @@ popd
 /usr/share/doc/HTML/et/kcontrol5/khtml-java-js/index.docbook
 /usr/share/doc/HTML/et/kcontrol5/performance/index.cache.bz2
 /usr/share/doc/HTML/et/kcontrol5/performance/index.docbook
+/usr/share/doc/HTML/fr/kcontrol5/history/index.cache.bz2
+/usr/share/doc/HTML/fr/kcontrol5/history/index.docbook
 /usr/share/doc/HTML/fr/konqueror/basics.docbook
 /usr/share/doc/HTML/fr/konqueror/bookmarks.docbook
 /usr/share/doc/HTML/fr/konqueror/browser.docbook
@@ -545,6 +568,8 @@ popd
 /usr/share/doc/HTML/it/kcontrol5/performance/index.docbook
 /usr/share/doc/HTML/it/konqueror/index.cache.bz2
 /usr/share/doc/HTML/it/konqueror/index.docbook
+/usr/share/doc/HTML/ko/kcontrol5/performance/index.cache.bz2
+/usr/share/doc/HTML/ko/kcontrol5/performance/index.docbook
 /usr/share/doc/HTML/nb/kcontrol5/bookmarks/index.cache.bz2
 /usr/share/doc/HTML/nb/kcontrol5/bookmarks/index.docbook
 /usr/share/doc/HTML/nb/kcontrol5/history/index.cache.bz2
@@ -787,10 +812,10 @@ popd
 /usr/share/doc/HTML/uk/konqueror/konqorg.png
 /usr/share/doc/HTML/uk/konqueror/look.png
 /usr/share/doc/HTML/uk/konqueror/parts.png
-/usr/share/doc/HTML/uk/konqueror/shortcut1.png
-/usr/share/doc/HTML/uk/konqueror/shortcut2.png
 /usr/share/doc/HTML/uk/konqueror/thumbnails.png
 /usr/share/doc/HTML/uk/konqueror/viewproperties-dialog.png
+/usr/share/doc/HTML/zh_CN/kcontrol5/history/index.cache.bz2
+/usr/share/doc/HTML/zh_CN/kcontrol5/history/index.docbook
 
 %files lib
 %defattr(-,root,root,-)
@@ -798,14 +823,17 @@ popd
 /usr/lib64/libKF5Konq.so.6
 /usr/lib64/libkdeinit5_kfmclient.so
 /usr/lib64/libkdeinit5_konqueror.so
+/usr/lib64/libkonqsidebarplugin.so.20.08.0
+/usr/lib64/libkonqsidebarplugin.so.5
+/usr/lib64/libkonquerorprivate.so.20.08.0
 /usr/lib64/libkonquerorprivate.so.5
-/usr/lib64/libkonquerorprivate.so.5.0.97
 /usr/lib64/qt5/plugins/akregatorkonqfeedicon.so
 /usr/lib64/qt5/plugins/autorefresh.so
 /usr/lib64/qt5/plugins/babelfishplugin.so
 /usr/lib64/qt5/plugins/dirfilterplugin.so
 /usr/lib64/qt5/plugins/fsviewpart.so
 /usr/lib64/qt5/plugins/kcm_bookmarks.so
+/usr/lib64/qt5/plugins/kcm_history.so
 /usr/lib64/qt5/plugins/kcm_konq.so
 /usr/lib64/qt5/plugins/kcm_konqhtml.so
 /usr/lib64/qt5/plugins/kcm_performance.so
@@ -815,7 +843,13 @@ popd
 /usr/lib64/qt5/plugins/khtmlttsplugin.so
 /usr/lib64/qt5/plugins/kimgallery.so
 /usr/lib64/qt5/plugins/konq_shellcmdplugin.so
+/usr/lib64/qt5/plugins/konq_sidebar.so
+/usr/lib64/qt5/plugins/konqsidebar_bookmarks.so
+/usr/lib64/qt5/plugins/konqsidebar_history.so
+/usr/lib64/qt5/plugins/konqsidebar_places.so
+/usr/lib64/qt5/plugins/konqsidebar_tree.so
 /usr/lib64/qt5/plugins/searchbarplugin.so
+/usr/lib64/qt5/plugins/uachangerplugin.so
 
 %files license
 %defattr(0644,root,root,0755)
