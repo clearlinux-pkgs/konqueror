@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : konqueror
-Version  : 21.08.1
-Release  : 33
-URL      : https://download.kde.org/stable/release-service/21.08.1/src/konqueror-21.08.1.tar.xz
-Source0  : https://download.kde.org/stable/release-service/21.08.1/src/konqueror-21.08.1.tar.xz
-Source1  : https://download.kde.org/stable/release-service/21.08.1/src/konqueror-21.08.1.tar.xz.sig
+Version  : 21.08.2
+Release  : 34
+URL      : https://download.kde.org/stable/release-service/21.08.2/src/konqueror-21.08.2.tar.xz
+Source0  : https://download.kde.org/stable/release-service/21.08.2/src/konqueror-21.08.2.tar.xz
+Source1  : https://download.kde.org/stable/release-service/21.08.2/src/konqueror-21.08.2.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GFDL-1.2 GFDL-1.3 GPL-2.0 LGPL-2.1
@@ -101,15 +101,15 @@ locales components for the konqueror package.
 
 
 %prep
-%setup -q -n konqueror-21.08.1
-cd %{_builddir}/konqueror-21.08.1
+%setup -q -n konqueror-21.08.2
+cd %{_builddir}/konqueror-21.08.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1630962271
+export SOURCE_DATE_EPOCH=1634348131
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -125,18 +125,18 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1630962271
+export SOURCE_DATE_EPOCH=1634348131
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/konqueror
-cp %{_builddir}/konqueror-21.08.1/COPYING %{buildroot}/usr/share/package-licenses/konqueror/4cc77b90af91e615a64ae04893fdffa7939db84c
-cp %{_builddir}/konqueror-21.08.1/COPYING.DOC %{buildroot}/usr/share/package-licenses/konqueror/e1d31e42d2a477d6def889000aa8ffc251f2354c
-cp %{_builddir}/konqueror-21.08.1/COPYING.LIB %{buildroot}/usr/share/package-licenses/konqueror/01a6b4bf79aca9b556822601186afab86e8c4fbf
-cp %{_builddir}/konqueror-21.08.1/libkonq/COPYING %{buildroot}/usr/share/package-licenses/konqueror/7c203dee3a03037da436df03c4b25b659c073976
-cp %{_builddir}/konqueror-21.08.1/libkonq/COPYING.LIB %{buildroot}/usr/share/package-licenses/konqueror/9a1929f4700d2407c70b507b3b2aaf6226a9543c
-cp %{_builddir}/konqueror-21.08.1/plugins/COPYING %{buildroot}/usr/share/package-licenses/konqueror/7c203dee3a03037da436df03c4b25b659c073976
-cp %{_builddir}/konqueror-21.08.1/plugins/COPYING.DOC %{buildroot}/usr/share/package-licenses/konqueror/bd75d59f9d7d9731bfabdc48ecd19e704d218e38
-cp %{_builddir}/konqueror-21.08.1/plugins/COPYING.LIB %{buildroot}/usr/share/package-licenses/konqueror/9a1929f4700d2407c70b507b3b2aaf6226a9543c
-cp %{_builddir}/konqueror-21.08.1/webenginepart/COPYING.LIB %{buildroot}/usr/share/package-licenses/konqueror/6c3f140c3d22440a55cccd8dd7dd348115e67968
+cp %{_builddir}/konqueror-21.08.2/COPYING %{buildroot}/usr/share/package-licenses/konqueror/4cc77b90af91e615a64ae04893fdffa7939db84c
+cp %{_builddir}/konqueror-21.08.2/COPYING.DOC %{buildroot}/usr/share/package-licenses/konqueror/e1d31e42d2a477d6def889000aa8ffc251f2354c
+cp %{_builddir}/konqueror-21.08.2/COPYING.LIB %{buildroot}/usr/share/package-licenses/konqueror/01a6b4bf79aca9b556822601186afab86e8c4fbf
+cp %{_builddir}/konqueror-21.08.2/libkonq/COPYING %{buildroot}/usr/share/package-licenses/konqueror/7c203dee3a03037da436df03c4b25b659c073976
+cp %{_builddir}/konqueror-21.08.2/libkonq/COPYING.LIB %{buildroot}/usr/share/package-licenses/konqueror/9a1929f4700d2407c70b507b3b2aaf6226a9543c
+cp %{_builddir}/konqueror-21.08.2/plugins/COPYING %{buildroot}/usr/share/package-licenses/konqueror/7c203dee3a03037da436df03c4b25b659c073976
+cp %{_builddir}/konqueror-21.08.2/plugins/COPYING.DOC %{buildroot}/usr/share/package-licenses/konqueror/bd75d59f9d7d9731bfabdc48ecd19e704d218e38
+cp %{_builddir}/konqueror-21.08.2/plugins/COPYING.LIB %{buildroot}/usr/share/package-licenses/konqueror/9a1929f4700d2407c70b507b3b2aaf6226a9543c
+cp %{_builddir}/konqueror-21.08.2/webenginepart/COPYING.LIB %{buildroot}/usr/share/package-licenses/konqueror/6c3f140c3d22440a55cccd8dd7dd348115e67968
 pushd clr-build
 %make_install
 popd
@@ -851,9 +851,9 @@ popd
 /usr/lib64/libKF5Konq.so.6
 /usr/lib64/libkdeinit5_kfmclient.so
 /usr/lib64/libkdeinit5_konqueror.so
-/usr/lib64/libkonqsidebarplugin.so.21.08.1
+/usr/lib64/libkonqsidebarplugin.so.21.08.2
 /usr/lib64/libkonqsidebarplugin.so.5
-/usr/lib64/libkonquerorprivate.so.21.08.1
+/usr/lib64/libkonquerorprivate.so.21.08.2
 /usr/lib64/libkonquerorprivate.so.5
 /usr/lib64/qt5/plugins/akregatorkonqfeedicon.so
 /usr/lib64/qt5/plugins/autorefresh.so
