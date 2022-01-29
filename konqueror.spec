@@ -6,7 +6,7 @@
 #
 Name     : konqueror
 Version  : 21.12.1
-Release  : 38
+Release  : 39
 URL      : https://download.kde.org/stable/release-service/21.12.1/src/konqueror-21.12.1.tar.xz
 Source0  : https://download.kde.org/stable/release-service/21.12.1/src/konqueror-21.12.1.tar.xz
 Source1  : https://download.kde.org/stable/release-service/21.12.1/src/konqueror-21.12.1.tar.xz.sig
@@ -109,7 +109,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1641941090
+export SOURCE_DATE_EPOCH=1643436178
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -125,7 +125,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1641941090
+export SOURCE_DATE_EPOCH=1643436178
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/konqueror
 cp %{_builddir}/konqueror-21.12.1/LICENSES/BSD-2-Clause.txt %{buildroot}/usr/share/package-licenses/konqueror/ea97eb88ae53ec41e26f8542176ab986d7bc943a
@@ -307,6 +307,9 @@ popd
 /usr/share/webenginepart/kpartplugins/plugin_webarchiver.rc
 /usr/share/webenginepart/kpartplugins/uachangerplugin.desktop
 /usr/share/webenginepart/kpartplugins/uachangerplugin.rc
+/usr/share/xdg/autostart/konqy_preload.desktop
+/usr/share/xdg/konqsidebartngrc
+/usr/share/xdg/translaterc
 
 %files dev
 %defattr(-,root,root,-)
