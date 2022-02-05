@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : konqueror
-Version  : 21.12.1
-Release  : 39
-URL      : https://download.kde.org/stable/release-service/21.12.1/src/konqueror-21.12.1.tar.xz
-Source0  : https://download.kde.org/stable/release-service/21.12.1/src/konqueror-21.12.1.tar.xz
-Source1  : https://download.kde.org/stable/release-service/21.12.1/src/konqueror-21.12.1.tar.xz.sig
+Version  : 21.12.2
+Release  : 40
+URL      : https://download.kde.org/stable/release-service/21.12.2/src/konqueror-21.12.2.tar.xz
+Source0  : https://download.kde.org/stable/release-service/21.12.2/src/konqueror-21.12.2.tar.xz
+Source1  : https://download.kde.org/stable/release-service/21.12.2/src/konqueror-21.12.2.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : BSD-2-Clause BSD-3-Clause GFDL-1.2 GPL-2.0 GPL-3.0 LGPL-2.0 LGPL-2.1 LGPL-3.0
@@ -101,15 +101,15 @@ locales components for the konqueror package.
 
 
 %prep
-%setup -q -n konqueror-21.12.1
-cd %{_builddir}/konqueror-21.12.1
+%setup -q -n konqueror-21.12.2
+cd %{_builddir}/konqueror-21.12.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1643436178
+export SOURCE_DATE_EPOCH=1644103612
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -125,23 +125,23 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1643436178
+export SOURCE_DATE_EPOCH=1644103612
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/konqueror
-cp %{_builddir}/konqueror-21.12.1/LICENSES/BSD-2-Clause.txt %{buildroot}/usr/share/package-licenses/konqueror/ea97eb88ae53ec41e26f8542176ab986d7bc943a
-cp %{_builddir}/konqueror-21.12.1/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/konqueror/f1946dab78e58c04c8c25ec6b074f5fc5c2830fe
-cp %{_builddir}/konqueror-21.12.1/LICENSES/GPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/konqueror/3e8971c6c5f16674958913a94a36b1ea7a00ac46
-cp %{_builddir}/konqueror-21.12.1/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/konqueror/3e8971c6c5f16674958913a94a36b1ea7a00ac46
-cp %{_builddir}/konqueror-21.12.1/LICENSES/GPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/konqueror/2123756e0b1fc8243547235a33c0fcabfe3b9a51
-cp %{_builddir}/konqueror-21.12.1/LICENSES/LGPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/konqueror/a4c60b3fefda228cd7439d3565df043192fef137
-cp %{_builddir}/konqueror-21.12.1/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/konqueror/a4c60b3fefda228cd7439d3565df043192fef137
-cp %{_builddir}/konqueror-21.12.1/LICENSES/LGPL-2.1-or-later.txt %{buildroot}/usr/share/package-licenses/konqueror/81b58c89ceef8e9f8bd5d00a287edbd15f9d3567
-cp %{_builddir}/konqueror-21.12.1/LICENSES/LGPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/konqueror/19d98e1b6f8ef12849ea4012a052d3907f336c91
-cp %{_builddir}/konqueror-21.12.1/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/konqueror/7d9831e05094ce723947d729c2a46a09d6e90275
-cp %{_builddir}/konqueror-21.12.1/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/konqueror/7d9831e05094ce723947d729c2a46a09d6e90275
-cp %{_builddir}/konqueror-21.12.1/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/konqueror/e458941548e0864907e654fa2e192844ae90fc32
-cp %{_builddir}/konqueror-21.12.1/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/konqueror/e458941548e0864907e654fa2e192844ae90fc32
-cp %{_builddir}/konqueror-21.12.1/plugins/COPYING.DOC %{buildroot}/usr/share/package-licenses/konqueror/bd75d59f9d7d9731bfabdc48ecd19e704d218e38
+cp %{_builddir}/konqueror-21.12.2/LICENSES/BSD-2-Clause.txt %{buildroot}/usr/share/package-licenses/konqueror/ea97eb88ae53ec41e26f8542176ab986d7bc943a
+cp %{_builddir}/konqueror-21.12.2/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/konqueror/f1946dab78e58c04c8c25ec6b074f5fc5c2830fe
+cp %{_builddir}/konqueror-21.12.2/LICENSES/GPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/konqueror/3e8971c6c5f16674958913a94a36b1ea7a00ac46
+cp %{_builddir}/konqueror-21.12.2/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/konqueror/3e8971c6c5f16674958913a94a36b1ea7a00ac46
+cp %{_builddir}/konqueror-21.12.2/LICENSES/GPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/konqueror/2123756e0b1fc8243547235a33c0fcabfe3b9a51
+cp %{_builddir}/konqueror-21.12.2/LICENSES/LGPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/konqueror/a4c60b3fefda228cd7439d3565df043192fef137
+cp %{_builddir}/konqueror-21.12.2/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/konqueror/a4c60b3fefda228cd7439d3565df043192fef137
+cp %{_builddir}/konqueror-21.12.2/LICENSES/LGPL-2.1-or-later.txt %{buildroot}/usr/share/package-licenses/konqueror/81b58c89ceef8e9f8bd5d00a287edbd15f9d3567
+cp %{_builddir}/konqueror-21.12.2/LICENSES/LGPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/konqueror/19d98e1b6f8ef12849ea4012a052d3907f336c91
+cp %{_builddir}/konqueror-21.12.2/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/konqueror/7d9831e05094ce723947d729c2a46a09d6e90275
+cp %{_builddir}/konqueror-21.12.2/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/konqueror/7d9831e05094ce723947d729c2a46a09d6e90275
+cp %{_builddir}/konqueror-21.12.2/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/konqueror/e458941548e0864907e654fa2e192844ae90fc32
+cp %{_builddir}/konqueror-21.12.2/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/konqueror/e458941548e0864907e654fa2e192844ae90fc32
+cp %{_builddir}/konqueror-21.12.2/plugins/COPYING.DOC %{buildroot}/usr/share/package-licenses/konqueror/bd75d59f9d7d9731bfabdc48ecd19e704d218e38
 pushd clr-build
 %make_install
 popd
@@ -846,9 +846,9 @@ popd
 /usr/lib64/libKF5Konq.so.6
 /usr/lib64/libkdeinit5_kfmclient.so
 /usr/lib64/libkdeinit5_konqueror.so
-/usr/lib64/libkonqsidebarplugin.so.21.12.1
+/usr/lib64/libkonqsidebarplugin.so.21.12.2
 /usr/lib64/libkonqsidebarplugin.so.5
-/usr/lib64/libkonquerorprivate.so.21.12.1
+/usr/lib64/libkonquerorprivate.so.21.12.2
 /usr/lib64/libkonquerorprivate.so.5
 /usr/lib64/qt5/plugins/akregatorkonqfeedicon.so
 /usr/lib64/qt5/plugins/autorefresh.so
