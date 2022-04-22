@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : konqueror
-Version  : 21.12.3
-Release  : 41
-URL      : https://download.kde.org/stable/release-service/21.12.3/src/konqueror-21.12.3.tar.xz
-Source0  : https://download.kde.org/stable/release-service/21.12.3/src/konqueror-21.12.3.tar.xz
-Source1  : https://download.kde.org/stable/release-service/21.12.3/src/konqueror-21.12.3.tar.xz.sig
+Version  : 22.04.0
+Release  : 42
+URL      : https://download.kde.org/stable/release-service/22.04.0/src/konqueror-22.04.0.tar.xz
+Source0  : https://download.kde.org/stable/release-service/22.04.0/src/konqueror-22.04.0.tar.xz
+Source1  : https://download.kde.org/stable/release-service/22.04.0/src/konqueror-22.04.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : BSD-2-Clause BSD-3-Clause GFDL-1.2 GPL-2.0 GPL-3.0 LGPL-2.0 LGPL-2.1 LGPL-3.0
@@ -101,15 +101,15 @@ locales components for the konqueror package.
 
 
 %prep
-%setup -q -n konqueror-21.12.3
-cd %{_builddir}/konqueror-21.12.3
+%setup -q -n konqueror-22.04.0
+cd %{_builddir}/konqueror-22.04.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1646530387
+export SOURCE_DATE_EPOCH=1650665814
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -125,23 +125,23 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1646530387
+export SOURCE_DATE_EPOCH=1650665814
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/konqueror
-cp %{_builddir}/konqueror-21.12.3/LICENSES/BSD-2-Clause.txt %{buildroot}/usr/share/package-licenses/konqueror/ea97eb88ae53ec41e26f8542176ab986d7bc943a
-cp %{_builddir}/konqueror-21.12.3/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/konqueror/f1946dab78e58c04c8c25ec6b074f5fc5c2830fe
-cp %{_builddir}/konqueror-21.12.3/LICENSES/GPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/konqueror/3e8971c6c5f16674958913a94a36b1ea7a00ac46
-cp %{_builddir}/konqueror-21.12.3/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/konqueror/3e8971c6c5f16674958913a94a36b1ea7a00ac46
-cp %{_builddir}/konqueror-21.12.3/LICENSES/GPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/konqueror/2123756e0b1fc8243547235a33c0fcabfe3b9a51
-cp %{_builddir}/konqueror-21.12.3/LICENSES/LGPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/konqueror/a4c60b3fefda228cd7439d3565df043192fef137
-cp %{_builddir}/konqueror-21.12.3/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/konqueror/a4c60b3fefda228cd7439d3565df043192fef137
-cp %{_builddir}/konqueror-21.12.3/LICENSES/LGPL-2.1-or-later.txt %{buildroot}/usr/share/package-licenses/konqueror/81b58c89ceef8e9f8bd5d00a287edbd15f9d3567
-cp %{_builddir}/konqueror-21.12.3/LICENSES/LGPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/konqueror/19d98e1b6f8ef12849ea4012a052d3907f336c91
-cp %{_builddir}/konqueror-21.12.3/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/konqueror/7d9831e05094ce723947d729c2a46a09d6e90275
-cp %{_builddir}/konqueror-21.12.3/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/konqueror/7d9831e05094ce723947d729c2a46a09d6e90275
-cp %{_builddir}/konqueror-21.12.3/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/konqueror/e458941548e0864907e654fa2e192844ae90fc32
-cp %{_builddir}/konqueror-21.12.3/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/konqueror/e458941548e0864907e654fa2e192844ae90fc32
-cp %{_builddir}/konqueror-21.12.3/plugins/COPYING.DOC %{buildroot}/usr/share/package-licenses/konqueror/bd75d59f9d7d9731bfabdc48ecd19e704d218e38
+cp %{_builddir}/konqueror-22.04.0/LICENSES/BSD-2-Clause.txt %{buildroot}/usr/share/package-licenses/konqueror/ea97eb88ae53ec41e26f8542176ab986d7bc943a
+cp %{_builddir}/konqueror-22.04.0/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/konqueror/f1946dab78e58c04c8c25ec6b074f5fc5c2830fe
+cp %{_builddir}/konqueror-22.04.0/LICENSES/GPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/konqueror/3e8971c6c5f16674958913a94a36b1ea7a00ac46
+cp %{_builddir}/konqueror-22.04.0/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/konqueror/3e8971c6c5f16674958913a94a36b1ea7a00ac46
+cp %{_builddir}/konqueror-22.04.0/LICENSES/GPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/konqueror/2123756e0b1fc8243547235a33c0fcabfe3b9a51
+cp %{_builddir}/konqueror-22.04.0/LICENSES/LGPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/konqueror/a4c60b3fefda228cd7439d3565df043192fef137
+cp %{_builddir}/konqueror-22.04.0/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/konqueror/a4c60b3fefda228cd7439d3565df043192fef137
+cp %{_builddir}/konqueror-22.04.0/LICENSES/LGPL-2.1-or-later.txt %{buildroot}/usr/share/package-licenses/konqueror/81b58c89ceef8e9f8bd5d00a287edbd15f9d3567
+cp %{_builddir}/konqueror-22.04.0/LICENSES/LGPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/konqueror/19d98e1b6f8ef12849ea4012a052d3907f336c91
+cp %{_builddir}/konqueror-22.04.0/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/konqueror/7d9831e05094ce723947d729c2a46a09d6e90275
+cp %{_builddir}/konqueror-22.04.0/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/konqueror/7d9831e05094ce723947d729c2a46a09d6e90275
+cp %{_builddir}/konqueror-22.04.0/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/konqueror/e458941548e0864907e654fa2e192844ae90fc32
+cp %{_builddir}/konqueror-22.04.0/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/konqueror/e458941548e0864907e654fa2e192844ae90fc32
+cp %{_builddir}/konqueror-22.04.0/plugins/COPYING.DOC %{buildroot}/usr/share/package-licenses/konqueror/bd75d59f9d7d9731bfabdc48ecd19e704d218e38
 pushd clr-build
 %make_install
 popd
@@ -156,6 +156,7 @@ popd
 %find_lang kcmkonqhtml
 %find_lang kcmperformance
 %find_lang kfmclient
+%find_lang kgetplugin
 %find_lang khtmlsettingsplugin
 %find_lang khtmltts
 %find_lang konqueror
@@ -188,12 +189,6 @@ popd
 /usr/share/config.kcfg/konqueror.kcfg
 /usr/share/dbus-1/interfaces/org.kde.Konqueror.Main.xml
 /usr/share/dbus-1/interfaces/org.kde.Konqueror.MainWindow.xml
-/usr/share/dolphinpart/kpartplugins/dirfilterplugin.desktop
-/usr/share/dolphinpart/kpartplugins/dirfilterplugin.rc
-/usr/share/dolphinpart/kpartplugins/kimgalleryplugin.desktop
-/usr/share/dolphinpart/kpartplugins/kimgalleryplugin.rc
-/usr/share/dolphinpart/kpartplugins/kshellcmdplugin.desktop
-/usr/share/dolphinpart/kpartplugins/kshellcmdplugin.rc
 /usr/share/icons/hicolor/128x128/apps/konqueror.png
 /usr/share/icons/hicolor/128x128/apps/webengine.png
 /usr/share/icons/hicolor/16x16/actions/babelfish.png
@@ -219,20 +214,6 @@ popd
 /usr/share/kcontrol/pics/onlyone.png
 /usr/share/kcontrol/pics/overlapping.png
 /usr/share/kf5/kbookmark/directory_bookmarkbar.desktop
-/usr/share/khtml/kpartplugins/akregator_konqfeedicon.desktop
-/usr/share/khtml/kpartplugins/akregator_konqfeedicon.rc
-/usr/share/khtml/kpartplugins/autorefresh.desktop
-/usr/share/khtml/kpartplugins/autorefresh.rc
-/usr/share/khtml/kpartplugins/khtmlsettingsplugin.desktop
-/usr/share/khtml/kpartplugins/khtmlsettingsplugin.rc
-/usr/share/khtml/kpartplugins/khtmltts.desktop
-/usr/share/khtml/kpartplugins/khtmltts.rc
-/usr/share/khtml/kpartplugins/plugin_babelfish.rc
-/usr/share/khtml/kpartplugins/plugin_translator.desktop
-/usr/share/khtml/kpartplugins/plugin_webarchiver.desktop
-/usr/share/khtml/kpartplugins/plugin_webarchiver.rc
-/usr/share/khtml/kpartplugins/uachangerplugin.desktop
-/usr/share/khtml/kpartplugins/uachangerplugin.rc
 /usr/share/konqsidebartng/entries/bookmarks.desktop
 /usr/share/konqsidebartng/entries/fonts.desktop
 /usr/share/konqsidebartng/entries/history.desktop
@@ -259,33 +240,27 @@ popd
 /usr/share/konqueror/icons/hicolor/48x48/actions/google.png
 /usr/share/konqueror/icons/hicolor/64x64/actions/google.png
 /usr/share/konqueror/icons/hicolor/scalable/actions/google.svgz
-/usr/share/konqueror/kpartplugins/searchbar.desktop
-/usr/share/konqueror/kpartplugins/searchbar.rc
-/usr/share/konqueror/opensearch/google.xml
+/usr/share/konqueror/partsrcfiles/akregatorkonqfeedicon.rc
+/usr/share/konqueror/partsrcfiles/autorefresh.rc
+/usr/share/konqueror/partsrcfiles/babelfishplugin.rc
+/usr/share/konqueror/partsrcfiles/dirfilterplugin.rc
+/usr/share/konqueror/partsrcfiles/khtmlsettingsplugin.rc
+/usr/share/konqueror/partsrcfiles/khtmlttsplugin.rc
+/usr/share/konqueror/partsrcfiles/kimgallery.rc
+/usr/share/konqueror/partsrcfiles/konq_shellcmdplugin.rc
+/usr/share/konqueror/partsrcfiles/konqueror_kget_browser_integration.rc
+/usr/share/konqueror/partsrcfiles/searchbarplugin.rc
+/usr/share/konqueror/partsrcfiles/uachangerplugin.rc
+/usr/share/konqueror/partsrcfiles/webarchiverplugin.rc
 /usr/share/konqueror/pics/indicator_connect.png
 /usr/share/konqueror/pics/indicator_empty.png
 /usr/share/konqueror/pics/indicator_noconnect.png
 /usr/share/konqueror/pics/indicator_viewactive.png
-/usr/share/kservices5/akregator_konqplugin.desktop
 /usr/share/kservices5/fsview_part.desktop
 /usr/share/kservices5/konq_sidebartng.desktop
 /usr/share/kservices5/org.kde.konqueror.desktop
 /usr/share/kservices5/webarchivethumbnail.desktop
 /usr/share/kservices5/webenginepart.desktop
-/usr/share/kwebkitpart/kpartplugins/akregator_konqfeedicon.desktop
-/usr/share/kwebkitpart/kpartplugins/akregator_konqfeedicon.rc
-/usr/share/kwebkitpart/kpartplugins/autorefresh.desktop
-/usr/share/kwebkitpart/kpartplugins/autorefresh.rc
-/usr/share/kwebkitpart/kpartplugins/khtmlsettingsplugin.desktop
-/usr/share/kwebkitpart/kpartplugins/khtmlsettingsplugin.rc
-/usr/share/kwebkitpart/kpartplugins/khtmltts.desktop
-/usr/share/kwebkitpart/kpartplugins/khtmltts.rc
-/usr/share/kwebkitpart/kpartplugins/plugin_babelfish.rc
-/usr/share/kwebkitpart/kpartplugins/plugin_translator.desktop
-/usr/share/kwebkitpart/kpartplugins/plugin_webarchiver.desktop
-/usr/share/kwebkitpart/kpartplugins/plugin_webarchiver.rc
-/usr/share/kwebkitpart/kpartplugins/uachangerplugin.desktop
-/usr/share/kwebkitpart/kpartplugins/uachangerplugin.rc
 /usr/share/kxmlgui5/fsview/fsview_part.rc
 /usr/share/kxmlgui5/webenginepart/webenginepart.rc
 /usr/share/metainfo/org.kde.konqueror.appdata.xml
@@ -293,20 +268,6 @@ popd
 /usr/share/qlogging-categories5/fsview.categories
 /usr/share/qlogging-categories5/konqueror.categories
 /usr/share/webenginepart/error.html
-/usr/share/webenginepart/kpartplugins/akregator_konqfeedicon.desktop
-/usr/share/webenginepart/kpartplugins/akregator_konqfeedicon.rc
-/usr/share/webenginepart/kpartplugins/autorefresh.desktop
-/usr/share/webenginepart/kpartplugins/autorefresh.rc
-/usr/share/webenginepart/kpartplugins/khtmlsettingsplugin.desktop
-/usr/share/webenginepart/kpartplugins/khtmlsettingsplugin.rc
-/usr/share/webenginepart/kpartplugins/khtmltts.desktop
-/usr/share/webenginepart/kpartplugins/khtmltts.rc
-/usr/share/webenginepart/kpartplugins/plugin_babelfish.rc
-/usr/share/webenginepart/kpartplugins/plugin_translator.desktop
-/usr/share/webenginepart/kpartplugins/plugin_webarchiver.desktop
-/usr/share/webenginepart/kpartplugins/plugin_webarchiver.rc
-/usr/share/webenginepart/kpartplugins/uachangerplugin.desktop
-/usr/share/webenginepart/kpartplugins/uachangerplugin.rc
 /usr/share/xdg/autostart/konqy_preload.desktop
 /usr/share/xdg/konqsidebartngrc
 /usr/share/xdg/translaterc
@@ -316,6 +277,7 @@ popd
 /usr/include/KF5/konq_events.h
 /usr/include/KF5/konq_historyentry.h
 /usr/include/KF5/konq_historyprovider.h
+/usr/include/KF5/konq_kpart_plugin.h
 /usr/include/KF5/konq_popupmenu.h
 /usr/include/KF5/konq_version.h
 /usr/include/KF5/libkonq_export.h
@@ -846,26 +808,36 @@ popd
 /usr/lib64/libKF5Konq.so.6
 /usr/lib64/libkdeinit5_kfmclient.so
 /usr/lib64/libkdeinit5_konqueror.so
-/usr/lib64/libkonqsidebarplugin.so.21.12.3
+/usr/lib64/libkonqsidebarplugin.so.22.04.0
 /usr/lib64/libkonqsidebarplugin.so.5
-/usr/lib64/libkonquerorprivate.so.21.12.3
+/usr/lib64/libkonquerorprivate.so.22.04.0
 /usr/lib64/libkonquerorprivate.so.5
 /usr/lib64/qt5/plugins/akregatorkonqfeedicon.so
 /usr/lib64/qt5/plugins/autorefresh.so
 /usr/lib64/qt5/plugins/babelfishplugin.so
 /usr/lib64/qt5/plugins/dirfilterplugin.so
+/usr/lib64/qt5/plugins/dolphinpart/kpartplugins/kimgallery.so
+/usr/lib64/qt5/plugins/dolphinpart/kpartplugins/konq_shellcmdplugin.so
 /usr/lib64/qt5/plugins/kf5/kfileitemaction/akregatorplugin.so
 /usr/lib64/qt5/plugins/kf5/parts/fsviewpart.so
 /usr/lib64/qt5/plugins/kf5/parts/konq_sidebar.so
 /usr/lib64/qt5/plugins/kf5/parts/webenginepart.so
+/usr/lib64/qt5/plugins/khtml/kpartplugins/akregatorkonqfeediconkhtml_kpartplugins.so
+/usr/lib64/qt5/plugins/khtml/kpartplugins/autorefreshkhtml_kpartplugins.so
+/usr/lib64/qt5/plugins/khtml/kpartplugins/babelfishpluginkhtml_kpartplugins.so
+/usr/lib64/qt5/plugins/khtml/kpartplugins/dirfilterpluginkhtml_kpartplugins.so
+/usr/lib64/qt5/plugins/khtml/kpartplugins/khtmlsettingspluginkhtml_kpartplugins.so
+/usr/lib64/qt5/plugins/khtml/kpartplugins/khtmlttspluginkhtml_kpartplugins.so
+/usr/lib64/qt5/plugins/khtml/kpartplugins/konqueror_kget_browser_integrationkhtml_kpartplugins.so
+/usr/lib64/qt5/plugins/khtml/kpartplugins/uachangerpluginkhtml_kpartplugins.so
+/usr/lib64/qt5/plugins/khtml/kpartplugins/webarchiverpluginkhtml_kpartplugins.so
 /usr/lib64/qt5/plugins/khtmlsettingsplugin.so
 /usr/lib64/qt5/plugins/khtmlttsplugin.so
-/usr/lib64/qt5/plugins/kimgallery.so
-/usr/lib64/qt5/plugins/konq_shellcmdplugin.so
 /usr/lib64/qt5/plugins/konqsidebar_bookmarks.so
 /usr/lib64/qt5/plugins/konqsidebar_history.so
 /usr/lib64/qt5/plugins/konqsidebar_places.so
 /usr/lib64/qt5/plugins/konqsidebar_tree.so
+/usr/lib64/qt5/plugins/konqueror/kpartplugins/searchbarplugin.so
 /usr/lib64/qt5/plugins/konqueror_kcms/kcm_bookmarks.so
 /usr/lib64/qt5/plugins/konqueror_kcms/kcm_history.so
 /usr/lib64/qt5/plugins/konqueror_kcms/kcm_konq.so
@@ -875,10 +847,28 @@ popd
 /usr/lib64/qt5/plugins/konqueror_kcms/khtml_filter.so
 /usr/lib64/qt5/plugins/konqueror_kcms/khtml_general.so
 /usr/lib64/qt5/plugins/konqueror_kcms/khtml_java_js.so
-/usr/lib64/qt5/plugins/searchbarplugin.so
+/usr/lib64/qt5/plugins/konqueror_kget_browser_integration.so
+/usr/lib64/qt5/plugins/kwebkitpart/kpartplugins/akregatorkonqfeediconkwebkitpart_kpartplugins.so
+/usr/lib64/qt5/plugins/kwebkitpart/kpartplugins/autorefreshkwebkitpart_kpartplugins.so
+/usr/lib64/qt5/plugins/kwebkitpart/kpartplugins/babelfishpluginkwebkitpart_kpartplugins.so
+/usr/lib64/qt5/plugins/kwebkitpart/kpartplugins/dirfilterpluginkwebkitpart_kpartplugins.so
+/usr/lib64/qt5/plugins/kwebkitpart/kpartplugins/khtmlsettingspluginkwebkitpart_kpartplugins.so
+/usr/lib64/qt5/plugins/kwebkitpart/kpartplugins/khtmlttspluginkwebkitpart_kpartplugins.so
+/usr/lib64/qt5/plugins/kwebkitpart/kpartplugins/konqueror_kget_browser_integrationkwebkitpart_kpartplugins.so
+/usr/lib64/qt5/plugins/kwebkitpart/kpartplugins/uachangerpluginkwebkitpart_kpartplugins.so
+/usr/lib64/qt5/plugins/kwebkitpart/kpartplugins/webarchiverpluginkwebkitpart_kpartplugins.so
 /usr/lib64/qt5/plugins/uachangerplugin.so
 /usr/lib64/qt5/plugins/webarchiverplugin.so
 /usr/lib64/qt5/plugins/webarchivethumbnail.so
+/usr/lib64/qt5/plugins/webenginepart/kpartplugins/akregatorkonqfeediconwebenginepart_kpartplugins.so
+/usr/lib64/qt5/plugins/webenginepart/kpartplugins/autorefreshwebenginepart_kpartplugins.so
+/usr/lib64/qt5/plugins/webenginepart/kpartplugins/babelfishpluginwebenginepart_kpartplugins.so
+/usr/lib64/qt5/plugins/webenginepart/kpartplugins/dirfilterpluginwebenginepart_kpartplugins.so
+/usr/lib64/qt5/plugins/webenginepart/kpartplugins/khtmlsettingspluginwebenginepart_kpartplugins.so
+/usr/lib64/qt5/plugins/webenginepart/kpartplugins/khtmlttspluginwebenginepart_kpartplugins.so
+/usr/lib64/qt5/plugins/webenginepart/kpartplugins/konqueror_kget_browser_integrationwebenginepart_kpartplugins.so
+/usr/lib64/qt5/plugins/webenginepart/kpartplugins/uachangerpluginwebenginepart_kpartplugins.so
+/usr/lib64/qt5/plugins/webenginepart/kpartplugins/webarchiverpluginwebenginepart_kpartplugins.so
 
 %files license
 %defattr(0644,root,root,0755)
@@ -893,6 +883,6 @@ popd
 /usr/share/package-licenses/konqueror/ea97eb88ae53ec41e26f8542176ab986d7bc943a
 /usr/share/package-licenses/konqueror/f1946dab78e58c04c8c25ec6b074f5fc5c2830fe
 
-%files locales -f akregator_konqplugin.lang -f autorefresh.lang -f babelfish.lang -f dirfilterplugin.lang -f fsview.lang -f imgalleryplugin.lang -f kcmbookmarks.lang -f kcmkonq.lang -f kcmkonqhtml.lang -f kcmperformance.lang -f kfmclient.lang -f khtmlsettingsplugin.lang -f khtmltts.lang -f konqueror.lang -f kshellcmdplugin.lang -f libkonq.lang -f searchbarplugin.lang -f uachangerplugin.lang -f webenginepart.lang -f webarchiver.lang
+%files locales -f akregator_konqplugin.lang -f autorefresh.lang -f babelfish.lang -f dirfilterplugin.lang -f fsview.lang -f imgalleryplugin.lang -f kcmbookmarks.lang -f kcmkonq.lang -f kcmkonqhtml.lang -f kcmperformance.lang -f kfmclient.lang -f kgetplugin.lang -f khtmlsettingsplugin.lang -f khtmltts.lang -f konqueror.lang -f kshellcmdplugin.lang -f libkonq.lang -f searchbarplugin.lang -f uachangerplugin.lang -f webenginepart.lang -f webarchiver.lang
 %defattr(-,root,root,-)
 
