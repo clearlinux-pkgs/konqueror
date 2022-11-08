@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : konqueror
-Version  : 22.08.2
-Release  : 48
-URL      : https://download.kde.org/stable/release-service/22.08.2/src/konqueror-22.08.2.tar.xz
-Source0  : https://download.kde.org/stable/release-service/22.08.2/src/konqueror-22.08.2.tar.xz
-Source1  : https://download.kde.org/stable/release-service/22.08.2/src/konqueror-22.08.2.tar.xz.sig
+Version  : 22.08.3
+Release  : 49
+URL      : https://download.kde.org/stable/release-service/22.08.3/src/konqueror-22.08.3.tar.xz
+Source0  : https://download.kde.org/stable/release-service/22.08.3/src/konqueror-22.08.3.tar.xz
+Source1  : https://download.kde.org/stable/release-service/22.08.3/src/konqueror-22.08.3.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : BSD-2-Clause BSD-3-Clause GFDL-1.2 GPL-2.0 GPL-3.0 LGPL-2.0 LGPL-2.1 LGPL-3.0
@@ -101,15 +101,15 @@ locales components for the konqueror package.
 
 
 %prep
-%setup -q -n konqueror-22.08.2
-cd %{_builddir}/konqueror-22.08.2
+%setup -q -n konqueror-22.08.3
+cd %{_builddir}/konqueror-22.08.3
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1665713623
+export SOURCE_DATE_EPOCH=1667871369
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -125,7 +125,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1665713623
+export SOURCE_DATE_EPOCH=1667871369
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/konqueror
 cp %{_builddir}/konqueror-%{version}/LICENSES/BSD-2-Clause.txt %{buildroot}/usr/share/package-licenses/konqueror/ea97eb88ae53ec41e26f8542176ab986d7bc943a || :
@@ -264,6 +264,7 @@ popd
 /usr/share/kservices5/webenginepart.desktop
 /usr/share/kxmlgui5/fsview/fsview_part.rc
 /usr/share/kxmlgui5/webenginepart/webenginepart.rc
+/usr/share/locale/hu/LC_MESSAGES
 /usr/share/metainfo/org.kde.konqueror.appdata.xml
 /usr/share/qlogging-categories5/akregatorplugin.categories
 /usr/share/qlogging-categories5/fsview.categories
@@ -809,9 +810,9 @@ popd
 /usr/lib64/libKF5Konq.so.6
 /usr/lib64/libkdeinit5_kfmclient.so
 /usr/lib64/libkdeinit5_konqueror.so
-/usr/lib64/libkonqsidebarplugin.so.22.08.2
+/usr/lib64/libkonqsidebarplugin.so.22.08.3
 /usr/lib64/libkonqsidebarplugin.so.5
-/usr/lib64/libkonquerorprivate.so.22.08.2
+/usr/lib64/libkonquerorprivate.so.22.08.3
 /usr/lib64/libkonquerorprivate.so.5
 /usr/lib64/qt5/plugins/akregatorkonqfeedicon.so
 /usr/lib64/qt5/plugins/autorefresh.so
