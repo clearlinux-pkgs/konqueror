@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : konqueror
-Version  : 22.08.3
-Release  : 49
-URL      : https://download.kde.org/stable/release-service/22.08.3/src/konqueror-22.08.3.tar.xz
-Source0  : https://download.kde.org/stable/release-service/22.08.3/src/konqueror-22.08.3.tar.xz
-Source1  : https://download.kde.org/stable/release-service/22.08.3/src/konqueror-22.08.3.tar.xz.sig
+Version  : 22.12.0
+Release  : 50
+URL      : https://download.kde.org/stable/release-service/22.12.0/src/konqueror-22.12.0.tar.xz
+Source0  : https://download.kde.org/stable/release-service/22.12.0/src/konqueror-22.12.0.tar.xz
+Source1  : https://download.kde.org/stable/release-service/22.12.0/src/konqueror-22.12.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : BSD-2-Clause BSD-3-Clause GFDL-1.2 GPL-2.0 GPL-3.0 LGPL-2.0 LGPL-2.1 LGPL-3.0
@@ -23,11 +23,11 @@ BuildRequires : buildreq-kde
 BuildRequires : extra-cmake-modules-data
 BuildRequires : kactivities-dev
 BuildRequires : kdesu-dev
-BuildRequires : libX11-dev libICE-dev libSM-dev libXau-dev libXcomposite-dev libXcursor-dev libXdamage-dev libXdmcp-dev libXext-dev libXfixes-dev libXft-dev libXi-dev libXinerama-dev libXi-dev libXmu-dev libXpm-dev libXrandr-dev libXrender-dev libXres-dev libXScrnSaver-dev libXt-dev libXtst-dev libXv-dev libXxf86vm-dev
 BuildRequires : qtbase-dev
 BuildRequires : qtbase-dev mesa-dev
 BuildRequires : qtspeech-dev
 BuildRequires : qtwebengine-dev
+BuildRequires : qtx11extras-dev
 BuildRequires : zlib-dev
 
 %description
@@ -101,15 +101,15 @@ locales components for the konqueror package.
 
 
 %prep
-%setup -q -n konqueror-22.08.3
-cd %{_builddir}/konqueror-22.08.3
+%setup -q -n konqueror-22.12.0
+cd %{_builddir}/konqueror-22.12.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1667871369
+export SOURCE_DATE_EPOCH=1670523848
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -125,7 +125,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1667871369
+export SOURCE_DATE_EPOCH=1670523848
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/konqueror
 cp %{_builddir}/konqueror-%{version}/LICENSES/BSD-2-Clause.txt %{buildroot}/usr/share/package-licenses/konqueror/ea97eb88ae53ec41e26f8542176ab986d7bc943a || :
@@ -145,11 +145,8 @@ cp %{_builddir}/konqueror-%{version}/plugins/COPYING.DOC %{buildroot}/usr/share/
 pushd clr-build
 %make_install
 popd
-%find_lang akregator_konqplugin
-%find_lang autorefresh
 %find_lang babelfish
 %find_lang dirfilterplugin
-%find_lang fsview
 %find_lang imgalleryplugin
 %find_lang kcmbookmarks
 %find_lang kcmkonq
@@ -162,8 +159,11 @@ popd
 %find_lang konqueror
 %find_lang kshellcmdplugin
 %find_lang libkonq
-%find_lang searchbarplugin
 %find_lang uachangerplugin
+%find_lang akregator_konqplugin
+%find_lang autorefresh
+%find_lang fsview
+%find_lang searchbarplugin
 %find_lang webenginepart
 %find_lang webarchiver
 
@@ -264,7 +264,6 @@ popd
 /usr/share/kservices5/webenginepart.desktop
 /usr/share/kxmlgui5/fsview/fsview_part.rc
 /usr/share/kxmlgui5/webenginepart/webenginepart.rc
-/usr/share/locale/hu/LC_MESSAGES
 /usr/share/metainfo/org.kde.konqueror.appdata.xml
 /usr/share/qlogging-categories5/akregatorplugin.categories
 /usr/share/qlogging-categories5/fsview.categories
@@ -745,6 +744,38 @@ popd
 /usr/share/doc/HTML/sr/konqueror/save-settings.docbook
 /usr/share/doc/HTML/sr/konqueror/sidebar.docbook
 /usr/share/doc/HTML/sr/konqueror/view-extensions.docbook
+/usr/share/doc/HTML/sr@latin/kcontrol5/bookmarks/index.cache.bz2
+/usr/share/doc/HTML/sr@latin/kcontrol5/bookmarks/index.docbook
+/usr/share/doc/HTML/sr@latin/kcontrol5/filemanager/index.cache.bz2
+/usr/share/doc/HTML/sr@latin/kcontrol5/filemanager/index.docbook
+/usr/share/doc/HTML/sr@latin/kcontrol5/kcmcss/index.cache.bz2
+/usr/share/doc/HTML/sr@latin/kcontrol5/kcmcss/index.docbook
+/usr/share/doc/HTML/sr@latin/kcontrol5/khtml-adblock/index.cache.bz2
+/usr/share/doc/HTML/sr@latin/kcontrol5/khtml-adblock/index.docbook
+/usr/share/doc/HTML/sr@latin/kcontrol5/khtml-behavior/index.cache.bz2
+/usr/share/doc/HTML/sr@latin/kcontrol5/khtml-behavior/index.docbook
+/usr/share/doc/HTML/sr@latin/kcontrol5/khtml-general/index.cache.bz2
+/usr/share/doc/HTML/sr@latin/kcontrol5/khtml-general/index.docbook
+/usr/share/doc/HTML/sr@latin/kcontrol5/khtml-java-js/index.cache.bz2
+/usr/share/doc/HTML/sr@latin/kcontrol5/khtml-java-js/index.docbook
+/usr/share/doc/HTML/sr@latin/kcontrol5/performance/index.cache.bz2
+/usr/share/doc/HTML/sr@latin/kcontrol5/performance/index.docbook
+/usr/share/doc/HTML/sr@latin/konqueror/basics.docbook
+/usr/share/doc/HTML/sr@latin/konqueror/bookmarks.docbook
+/usr/share/doc/HTML/sr@latin/konqueror/browser.docbook
+/usr/share/doc/HTML/sr@latin/konqueror/commands.docbook
+/usr/share/doc/HTML/sr@latin/konqueror/config.docbook
+/usr/share/doc/HTML/sr@latin/konqueror/credits.docbook
+/usr/share/doc/HTML/sr@latin/konqueror/faq.docbook
+/usr/share/doc/HTML/sr@latin/konqueror/filemanager.docbook
+/usr/share/doc/HTML/sr@latin/konqueror/index.cache.bz2
+/usr/share/doc/HTML/sr@latin/konqueror/index.docbook
+/usr/share/doc/HTML/sr@latin/konqueror/introduction.docbook
+/usr/share/doc/HTML/sr@latin/konqueror/path-complete.docbook
+/usr/share/doc/HTML/sr@latin/konqueror/plugins.docbook
+/usr/share/doc/HTML/sr@latin/konqueror/save-settings.docbook
+/usr/share/doc/HTML/sr@latin/konqueror/sidebar.docbook
+/usr/share/doc/HTML/sr@latin/konqueror/view-extensions.docbook
 /usr/share/doc/HTML/sv/kcontrol5/bookmarks/index.cache.bz2
 /usr/share/doc/HTML/sv/kcontrol5/bookmarks/index.docbook
 /usr/share/doc/HTML/sv/kcontrol5/filemanager/index.cache.bz2
@@ -810,9 +841,9 @@ popd
 /usr/lib64/libKF5Konq.so.6
 /usr/lib64/libkdeinit5_kfmclient.so
 /usr/lib64/libkdeinit5_konqueror.so
-/usr/lib64/libkonqsidebarplugin.so.22.08.3
+/usr/lib64/libkonqsidebarplugin.so.22.12.0
 /usr/lib64/libkonqsidebarplugin.so.5
-/usr/lib64/libkonquerorprivate.so.22.08.3
+/usr/lib64/libkonquerorprivate.so.22.12.0
 /usr/lib64/libkonquerorprivate.so.5
 /usr/lib64/qt5/plugins/akregatorkonqfeedicon.so
 /usr/lib64/qt5/plugins/autorefresh.so
@@ -882,6 +913,6 @@ popd
 /usr/share/package-licenses/konqueror/ea97eb88ae53ec41e26f8542176ab986d7bc943a
 /usr/share/package-licenses/konqueror/f1946dab78e58c04c8c25ec6b074f5fc5c2830fe
 
-%files locales -f akregator_konqplugin.lang -f autorefresh.lang -f babelfish.lang -f dirfilterplugin.lang -f fsview.lang -f imgalleryplugin.lang -f kcmbookmarks.lang -f kcmkonq.lang -f kcmkonqhtml.lang -f kcmperformance.lang -f kfmclient.lang -f kgetplugin.lang -f khtmlsettingsplugin.lang -f khtmltts.lang -f konqueror.lang -f kshellcmdplugin.lang -f libkonq.lang -f searchbarplugin.lang -f uachangerplugin.lang -f webenginepart.lang -f webarchiver.lang
+%files locales -f babelfish.lang -f dirfilterplugin.lang -f imgalleryplugin.lang -f kcmbookmarks.lang -f kcmkonq.lang -f kcmkonqhtml.lang -f kcmperformance.lang -f kfmclient.lang -f kgetplugin.lang -f khtmlsettingsplugin.lang -f khtmltts.lang -f konqueror.lang -f kshellcmdplugin.lang -f libkonq.lang -f uachangerplugin.lang -f akregator_konqplugin.lang -f autorefresh.lang -f fsview.lang -f searchbarplugin.lang -f webenginepart.lang -f webarchiver.lang
 %defattr(-,root,root,-)
 
