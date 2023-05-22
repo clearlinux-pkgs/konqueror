@@ -6,11 +6,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : konqueror
-Version  : 23.04.0
-Release  : 55
-URL      : https://download.kde.org/stable/release-service/23.04.0/src/konqueror-23.04.0.tar.xz
-Source0  : https://download.kde.org/stable/release-service/23.04.0/src/konqueror-23.04.0.tar.xz
-Source1  : https://download.kde.org/stable/release-service/23.04.0/src/konqueror-23.04.0.tar.xz.sig
+Version  : 23.04.1
+Release  : 56
+URL      : https://download.kde.org/stable/release-service/23.04.1/src/konqueror-23.04.1.tar.xz
+Source0  : https://download.kde.org/stable/release-service/23.04.1/src/konqueror-23.04.1.tar.xz
+Source1  : https://download.kde.org/stable/release-service/23.04.1/src/konqueror-23.04.1.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : BSD-2-Clause BSD-3-Clause GFDL-1.2 GPL-2.0 GPL-3.0 LGPL-2.0 LGPL-2.1 LGPL-3.0
@@ -105,31 +105,48 @@ locales components for the konqueror package.
 
 
 %prep
-%setup -q -n konqueror-23.04.0
-cd %{_builddir}/konqueror-23.04.0
+%setup -q -n konqueror-23.04.1
+cd %{_builddir}/konqueror-23.04.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1682025884
+export SOURCE_DATE_EPOCH=1684787873
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
-export FCFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
-export FFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
-export CXXFLAGS="$CXXFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
+export CFLAGS="$CFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export FCFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export FFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export CXXFLAGS="$CXXFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+%cmake ..
+make  %{?_smp_mflags}
+popd
+mkdir -p clr-build-avx2
+pushd clr-build-avx2
+export GCC_IGNORE_WERROR=1
+export AR=gcc-ar
+export RANLIB=gcc-ranlib
+export NM=gcc-nm
+export CFLAGS="$CFLAGS -O3 -Wl,-z,x86-64-v3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd -march=x86-64-v3 "
+export FCFLAGS="$FFLAGS -O3 -Wl,-z,x86-64-v3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd -march=x86-64-v3 "
+export FFLAGS="$FFLAGS -O3 -Wl,-z,x86-64-v3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd -march=x86-64-v3 "
+export CXXFLAGS="$CXXFLAGS -O3 -Wl,-z,x86-64-v3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd -march=x86-64-v3 "
+export CFLAGS="$CFLAGS -march=x86-64-v3 -m64 -Wl,-z,x86-64-v3"
+export CXXFLAGS="$CXXFLAGS -march=x86-64-v3 -m64 -Wl,-z,x86-64-v3"
+export FFLAGS="$FFLAGS -march=x86-64-v3 -m64 -Wl,-z,x86-64-v3"
+export FCFLAGS="$FCFLAGS -march=x86-64-v3 -m64 -Wl,-z,x86-64-v3"
 %cmake ..
 make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1682025884
+export SOURCE_DATE_EPOCH=1684787873
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/konqueror
 cp %{_builddir}/konqueror-%{version}/LICENSES/BSD-2-Clause.txt %{buildroot}/usr/share/package-licenses/konqueror/ea97eb88ae53ec41e26f8542176ab986d7bc943a || :
@@ -146,6 +163,9 @@ cp %{_builddir}/konqueror-%{version}/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{
 cp %{_builddir}/konqueror-%{version}/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/konqueror/e458941548e0864907e654fa2e192844ae90fc32 || :
 cp %{_builddir}/konqueror-%{version}/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/konqueror/e458941548e0864907e654fa2e192844ae90fc32 || :
 cp %{_builddir}/konqueror-%{version}/plugins/COPYING.DOC %{buildroot}/usr/share/package-licenses/konqueror/bd75d59f9d7d9731bfabdc48ecd19e704d218e38 || :
+pushd clr-build-avx2
+%make_install_v3  || :
+popd
 pushd clr-build
 %make_install
 popd
@@ -170,12 +190,17 @@ popd
 %find_lang searchbarplugin
 %find_lang webenginepart
 %find_lang webarchiver
+/usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot} %{buildroot}/usr/share/clear/filemap/filemap-%{name}
 
 %files
 %defattr(-,root,root,-)
 
 %files bin
 %defattr(-,root,root,-)
+/V3/usr/bin/fsview
+/V3/usr/bin/kcreatewebarchive
+/V3/usr/bin/kfmclient
+/V3/usr/bin/konqueror
 /usr/bin/fsview
 /usr/bin/kcreatewebarchive
 /usr/bin/kfmclient
@@ -279,6 +304,9 @@ popd
 
 %files dev
 %defattr(-,root,root,-)
+/V3/usr/lib64/libKF5Konq.so
+/V3/usr/lib64/libkonqsidebarplugin.so
+/V3/usr/lib64/libkwebenginepart.so
 /usr/include/KF5/konq_events.h
 /usr/include/KF5/konq_historyentry.h
 /usr/include/KF5/konq_historyprovider.h
@@ -869,13 +897,76 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
+/V3/usr/lib64/libKF5Konq.so.5.97.0
+/V3/usr/lib64/libKF5Konq.so.6
+/V3/usr/lib64/libkdeinit5_kfmclient.so
+/V3/usr/lib64/libkdeinit5_konqueror.so
+/V3/usr/lib64/libkonqsidebarplugin.so.23.04.1
+/V3/usr/lib64/libkonqsidebarplugin.so.5
+/V3/usr/lib64/libkonquerorprivate.so.23.04.1
+/V3/usr/lib64/libkonquerorprivate.so.5
+/V3/usr/lib64/qt5/plugins/akregatorkonqfeedicon.so
+/V3/usr/lib64/qt5/plugins/autorefresh.so
+/V3/usr/lib64/qt5/plugins/babelfishplugin.so
+/V3/usr/lib64/qt5/plugins/dolphinpart/kpartplugins/dirfilterplugin.so
+/V3/usr/lib64/qt5/plugins/dolphinpart/kpartplugins/kimgallery.so
+/V3/usr/lib64/qt5/plugins/dolphinpart/kpartplugins/konq_shellcmdplugin.so
+/V3/usr/lib64/qt5/plugins/kf5/kfileitemaction/akregatorplugin.so
+/V3/usr/lib64/qt5/plugins/kf5/parts/fsviewpart.so
+/V3/usr/lib64/qt5/plugins/kf5/parts/konq_sidebar.so
+/V3/usr/lib64/qt5/plugins/kf5/parts/webenginepart.so
+/V3/usr/lib64/qt5/plugins/khtml/kpartplugins/akregatorkonqfeediconkhtml_kpartplugins.so
+/V3/usr/lib64/qt5/plugins/khtml/kpartplugins/autorefreshkhtml_kpartplugins.so
+/V3/usr/lib64/qt5/plugins/khtml/kpartplugins/babelfishpluginkhtml_kpartplugins.so
+/V3/usr/lib64/qt5/plugins/khtml/kpartplugins/khtmlsettingspluginkhtml_kpartplugins.so
+/V3/usr/lib64/qt5/plugins/khtml/kpartplugins/khtmlttspluginkhtml_kpartplugins.so
+/V3/usr/lib64/qt5/plugins/khtml/kpartplugins/konqueror_kget_browser_integrationkhtml_kpartplugins.so
+/V3/usr/lib64/qt5/plugins/khtml/kpartplugins/uachangerpluginkhtml_kpartplugins.so
+/V3/usr/lib64/qt5/plugins/khtml/kpartplugins/webarchiverpluginkhtml_kpartplugins.so
+/V3/usr/lib64/qt5/plugins/khtmlsettingsplugin.so
+/V3/usr/lib64/qt5/plugins/khtmlttsplugin.so
+/V3/usr/lib64/qt5/plugins/konqsidebar_bookmarks.so
+/V3/usr/lib64/qt5/plugins/konqsidebar_history.so
+/V3/usr/lib64/qt5/plugins/konqsidebar_places.so
+/V3/usr/lib64/qt5/plugins/konqsidebar_tree.so
+/V3/usr/lib64/qt5/plugins/konqueror/kpartplugins/searchbarplugin.so
+/V3/usr/lib64/qt5/plugins/konqueror_kcms/kcm_bookmarks.so
+/V3/usr/lib64/qt5/plugins/konqueror_kcms/kcm_history.so
+/V3/usr/lib64/qt5/plugins/konqueror_kcms/kcm_konq.so
+/V3/usr/lib64/qt5/plugins/konqueror_kcms/kcm_performance.so
+/V3/usr/lib64/qt5/plugins/konqueror_kcms/khtml_appearance.so
+/V3/usr/lib64/qt5/plugins/konqueror_kcms/khtml_behavior.so
+/V3/usr/lib64/qt5/plugins/konqueror_kcms/khtml_cache.so
+/V3/usr/lib64/qt5/plugins/konqueror_kcms/khtml_filter.so
+/V3/usr/lib64/qt5/plugins/konqueror_kcms/khtml_general.so
+/V3/usr/lib64/qt5/plugins/konqueror_kcms/khtml_java_js.so
+/V3/usr/lib64/qt5/plugins/konqueror_kget_browser_integration.so
+/V3/usr/lib64/qt5/plugins/kwebkitpart/kpartplugins/akregatorkonqfeediconkwebkitpart_kpartplugins.so
+/V3/usr/lib64/qt5/plugins/kwebkitpart/kpartplugins/autorefreshkwebkitpart_kpartplugins.so
+/V3/usr/lib64/qt5/plugins/kwebkitpart/kpartplugins/babelfishpluginkwebkitpart_kpartplugins.so
+/V3/usr/lib64/qt5/plugins/kwebkitpart/kpartplugins/khtmlsettingspluginkwebkitpart_kpartplugins.so
+/V3/usr/lib64/qt5/plugins/kwebkitpart/kpartplugins/khtmlttspluginkwebkitpart_kpartplugins.so
+/V3/usr/lib64/qt5/plugins/kwebkitpart/kpartplugins/konqueror_kget_browser_integrationkwebkitpart_kpartplugins.so
+/V3/usr/lib64/qt5/plugins/kwebkitpart/kpartplugins/uachangerpluginkwebkitpart_kpartplugins.so
+/V3/usr/lib64/qt5/plugins/kwebkitpart/kpartplugins/webarchiverpluginkwebkitpart_kpartplugins.so
+/V3/usr/lib64/qt5/plugins/uachangerplugin.so
+/V3/usr/lib64/qt5/plugins/webarchiverplugin.so
+/V3/usr/lib64/qt5/plugins/webarchivethumbnail.so
+/V3/usr/lib64/qt5/plugins/webenginepart/kpartplugins/akregatorkonqfeediconwebenginepart_kpartplugins.so
+/V3/usr/lib64/qt5/plugins/webenginepart/kpartplugins/autorefreshwebenginepart_kpartplugins.so
+/V3/usr/lib64/qt5/plugins/webenginepart/kpartplugins/babelfishpluginwebenginepart_kpartplugins.so
+/V3/usr/lib64/qt5/plugins/webenginepart/kpartplugins/khtmlsettingspluginwebenginepart_kpartplugins.so
+/V3/usr/lib64/qt5/plugins/webenginepart/kpartplugins/khtmlttspluginwebenginepart_kpartplugins.so
+/V3/usr/lib64/qt5/plugins/webenginepart/kpartplugins/konqueror_kget_browser_integrationwebenginepart_kpartplugins.so
+/V3/usr/lib64/qt5/plugins/webenginepart/kpartplugins/uachangerpluginwebenginepart_kpartplugins.so
+/V3/usr/lib64/qt5/plugins/webenginepart/kpartplugins/webarchiverpluginwebenginepart_kpartplugins.so
 /usr/lib64/libKF5Konq.so.5.97.0
 /usr/lib64/libKF5Konq.so.6
 /usr/lib64/libkdeinit5_kfmclient.so
 /usr/lib64/libkdeinit5_konqueror.so
-/usr/lib64/libkonqsidebarplugin.so.23.04.0
+/usr/lib64/libkonqsidebarplugin.so.23.04.1
 /usr/lib64/libkonqsidebarplugin.so.5
-/usr/lib64/libkonquerorprivate.so.23.04.0
+/usr/lib64/libkonquerorprivate.so.23.04.1
 /usr/lib64/libkonquerorprivate.so.5
 /usr/lib64/qt5/plugins/akregatorkonqfeedicon.so
 /usr/lib64/qt5/plugins/autorefresh.so
