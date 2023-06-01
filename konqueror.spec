@@ -7,7 +7,7 @@
 #
 Name     : konqueror
 Version  : 23.04.1
-Release  : 56
+Release  : 57
 URL      : https://download.kde.org/stable/release-service/23.04.1/src/konqueror-23.04.1.tar.xz
 Source0  : https://download.kde.org/stable/release-service/23.04.1/src/konqueror-23.04.1.tar.xz
 Source1  : https://download.kde.org/stable/release-service/23.04.1/src/konqueror-23.04.1.tar.xz.sig
@@ -113,7 +113,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1684787873
+export SOURCE_DATE_EPOCH=1685592182
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -146,7 +146,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1684787873
+export SOURCE_DATE_EPOCH=1685592182
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/konqueror
 cp %{_builddir}/konqueror-%{version}/LICENSES/BSD-2-Clause.txt %{buildroot}/usr/share/package-licenses/konqueror/ea97eb88ae53ec41e26f8542176ab986d7bc943a || :
@@ -304,8 +304,6 @@ popd
 
 %files dev
 %defattr(-,root,root,-)
-/V3/usr/lib64/libKF5Konq.so
-/V3/usr/lib64/libkonqsidebarplugin.so
 /V3/usr/lib64/libkwebenginepart.so
 /usr/include/KF5/konq_events.h
 /usr/include/KF5/konq_historyentry.h
@@ -898,13 +896,10 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /V3/usr/lib64/libKF5Konq.so.5.97.0
-/V3/usr/lib64/libKF5Konq.so.6
 /V3/usr/lib64/libkdeinit5_kfmclient.so
 /V3/usr/lib64/libkdeinit5_konqueror.so
 /V3/usr/lib64/libkonqsidebarplugin.so.23.04.1
-/V3/usr/lib64/libkonqsidebarplugin.so.5
 /V3/usr/lib64/libkonquerorprivate.so.23.04.1
-/V3/usr/lib64/libkonquerorprivate.so.5
 /V3/usr/lib64/qt5/plugins/akregatorkonqfeedicon.so
 /V3/usr/lib64/qt5/plugins/autorefresh.so
 /V3/usr/lib64/qt5/plugins/babelfishplugin.so
@@ -915,14 +910,6 @@ popd
 /V3/usr/lib64/qt5/plugins/kf5/parts/fsviewpart.so
 /V3/usr/lib64/qt5/plugins/kf5/parts/konq_sidebar.so
 /V3/usr/lib64/qt5/plugins/kf5/parts/webenginepart.so
-/V3/usr/lib64/qt5/plugins/khtml/kpartplugins/akregatorkonqfeediconkhtml_kpartplugins.so
-/V3/usr/lib64/qt5/plugins/khtml/kpartplugins/autorefreshkhtml_kpartplugins.so
-/V3/usr/lib64/qt5/plugins/khtml/kpartplugins/babelfishpluginkhtml_kpartplugins.so
-/V3/usr/lib64/qt5/plugins/khtml/kpartplugins/khtmlsettingspluginkhtml_kpartplugins.so
-/V3/usr/lib64/qt5/plugins/khtml/kpartplugins/khtmlttspluginkhtml_kpartplugins.so
-/V3/usr/lib64/qt5/plugins/khtml/kpartplugins/konqueror_kget_browser_integrationkhtml_kpartplugins.so
-/V3/usr/lib64/qt5/plugins/khtml/kpartplugins/uachangerpluginkhtml_kpartplugins.so
-/V3/usr/lib64/qt5/plugins/khtml/kpartplugins/webarchiverpluginkhtml_kpartplugins.so
 /V3/usr/lib64/qt5/plugins/khtmlsettingsplugin.so
 /V3/usr/lib64/qt5/plugins/khtmlttsplugin.so
 /V3/usr/lib64/qt5/plugins/konqsidebar_bookmarks.so
@@ -941,25 +928,9 @@ popd
 /V3/usr/lib64/qt5/plugins/konqueror_kcms/khtml_general.so
 /V3/usr/lib64/qt5/plugins/konqueror_kcms/khtml_java_js.so
 /V3/usr/lib64/qt5/plugins/konqueror_kget_browser_integration.so
-/V3/usr/lib64/qt5/plugins/kwebkitpart/kpartplugins/akregatorkonqfeediconkwebkitpart_kpartplugins.so
-/V3/usr/lib64/qt5/plugins/kwebkitpart/kpartplugins/autorefreshkwebkitpart_kpartplugins.so
-/V3/usr/lib64/qt5/plugins/kwebkitpart/kpartplugins/babelfishpluginkwebkitpart_kpartplugins.so
-/V3/usr/lib64/qt5/plugins/kwebkitpart/kpartplugins/khtmlsettingspluginkwebkitpart_kpartplugins.so
-/V3/usr/lib64/qt5/plugins/kwebkitpart/kpartplugins/khtmlttspluginkwebkitpart_kpartplugins.so
-/V3/usr/lib64/qt5/plugins/kwebkitpart/kpartplugins/konqueror_kget_browser_integrationkwebkitpart_kpartplugins.so
-/V3/usr/lib64/qt5/plugins/kwebkitpart/kpartplugins/uachangerpluginkwebkitpart_kpartplugins.so
-/V3/usr/lib64/qt5/plugins/kwebkitpart/kpartplugins/webarchiverpluginkwebkitpart_kpartplugins.so
 /V3/usr/lib64/qt5/plugins/uachangerplugin.so
 /V3/usr/lib64/qt5/plugins/webarchiverplugin.so
 /V3/usr/lib64/qt5/plugins/webarchivethumbnail.so
-/V3/usr/lib64/qt5/plugins/webenginepart/kpartplugins/akregatorkonqfeediconwebenginepart_kpartplugins.so
-/V3/usr/lib64/qt5/plugins/webenginepart/kpartplugins/autorefreshwebenginepart_kpartplugins.so
-/V3/usr/lib64/qt5/plugins/webenginepart/kpartplugins/babelfishpluginwebenginepart_kpartplugins.so
-/V3/usr/lib64/qt5/plugins/webenginepart/kpartplugins/khtmlsettingspluginwebenginepart_kpartplugins.so
-/V3/usr/lib64/qt5/plugins/webenginepart/kpartplugins/khtmlttspluginwebenginepart_kpartplugins.so
-/V3/usr/lib64/qt5/plugins/webenginepart/kpartplugins/konqueror_kget_browser_integrationwebenginepart_kpartplugins.so
-/V3/usr/lib64/qt5/plugins/webenginepart/kpartplugins/uachangerpluginwebenginepart_kpartplugins.so
-/V3/usr/lib64/qt5/plugins/webenginepart/kpartplugins/webarchiverpluginwebenginepart_kpartplugins.so
 /usr/lib64/libKF5Konq.so.5.97.0
 /usr/lib64/libKF5Konq.so.6
 /usr/lib64/libkdeinit5_kfmclient.so
