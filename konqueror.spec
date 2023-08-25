@@ -6,11 +6,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : konqueror
-Version  : 23.04.3
-Release  : 59
-URL      : https://download.kde.org/stable/release-service/23.04.3/src/konqueror-23.04.3.tar.xz
-Source0  : https://download.kde.org/stable/release-service/23.04.3/src/konqueror-23.04.3.tar.xz
-Source1  : https://download.kde.org/stable/release-service/23.04.3/src/konqueror-23.04.3.tar.xz.sig
+Version  : 23.08.0
+Release  : 60
+URL      : https://download.kde.org/stable/release-service/23.08.0/src/konqueror-23.08.0.tar.xz
+Source0  : https://download.kde.org/stable/release-service/23.08.0/src/konqueror-23.08.0.tar.xz
+Source1  : https://download.kde.org/stable/release-service/23.08.0/src/konqueror-23.08.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : BSD-2-Clause BSD-3-Clause GFDL-1.2 GPL-2.0 GPL-3.0 LGPL-2.0 LGPL-2.1 LGPL-3.0
@@ -28,7 +28,6 @@ BuildRequires : qtbase-dev
 BuildRequires : qtbase-dev mesa-dev
 BuildRequires : qtspeech-dev
 BuildRequires : qtwebengine-dev
-BuildRequires : qtx11extras-dev
 BuildRequires : zlib-dev
 # Suppress stripping binaries
 %define __strip /bin/true
@@ -105,15 +104,15 @@ locales components for the konqueror package.
 
 
 %prep
-%setup -q -n konqueror-23.04.3
-cd %{_builddir}/konqueror-23.04.3
+%setup -q -n konqueror-23.08.0
+cd %{_builddir}/konqueror-23.08.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1688848361
+export SOURCE_DATE_EPOCH=1693003549
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -146,7 +145,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1688848361
+export SOURCE_DATE_EPOCH=1693003549
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/konqueror
 cp %{_builddir}/konqueror-%{version}/LICENSES/BSD-2-Clause.txt %{buildroot}/usr/share/package-licenses/konqueror/ea97eb88ae53ec41e26f8542176ab986d7bc943a || :
@@ -209,6 +208,7 @@ popd
 %files data
 %defattr(-,root,root,-)
 /usr/share/akregator/pics/feed.png
+/usr/share/applications/bookmarks.desktop
 /usr/share/applications/kfmclient.desktop
 /usr/share/applications/kfmclient_dir.desktop
 /usr/share/applications/kfmclient_html.desktop
@@ -256,7 +256,19 @@ popd
 /usr/share/konqsidebartng/plugins/konqsidebar_history.desktop
 /usr/share/konqsidebartng/plugins/konqsidebar_places.desktop
 /usr/share/konqsidebartng/plugins/konqsidebar_tree.desktop
+/usr/share/konqueror/about/body-background.png
+/usr/share/konqueror/about/box-bottom-left.png
+/usr/share/konqueror/about/box-bottom-middle.png
+/usr/share/konqueror/about/box-bottom-right.png
+/usr/share/konqueror/about/box-center.png
+/usr/share/konqueror/about/box-middle-left.png
+/usr/share/konqueror/about/box-middle-right.png
+/usr/share/konqueror/about/box-top-left.png
+/usr/share/konqueror/about/box-top-middle.png
+/usr/share/konqueror/about/box-top-right.png
 /usr/share/konqueror/about/intro.html
+/usr/share/konqueror/about/kde_infopage.css
+/usr/share/konqueror/about/kde_infopage_rtl.css
 /usr/share/konqueror/about/konq.css
 /usr/share/konqueror/about/launch.html
 /usr/share/konqueror/about/plugins.html
@@ -264,6 +276,7 @@ popd
 /usr/share/konqueror/about/specs.html
 /usr/share/konqueror/about/tips.html
 /usr/share/konqueror/about/top-left-konqueror.png
+/usr/share/konqueror/about/top-middle.png
 /usr/share/konqueror/icons/hicolor/16x16/actions/google.png
 /usr/share/konqueror/icons/hicolor/22x22/actions/google.png
 /usr/share/konqueror/icons/hicolor/32x32/actions/google.png
@@ -301,10 +314,12 @@ popd
 /usr/share/xdg/autostart/konqy_preload.desktop
 /usr/share/xdg/konqsidebartngrc
 /usr/share/xdg/translaterc
+/usr/share/xdg/useragenttemplatesrc
 
 %files dev
 %defattr(-,root,root,-)
 /V3/usr/lib64/libkwebenginepart.so
+/usr/include/KF5/asyncselectorinterface.h
 /usr/include/KF5/konq_events.h
 /usr/include/KF5/konq_historyentry.h
 /usr/include/KF5/konq_historyprovider.h
@@ -898,8 +913,8 @@ popd
 /V3/usr/lib64/libKF5Konq.so.5.97.0
 /V3/usr/lib64/libkdeinit5_kfmclient.so
 /V3/usr/lib64/libkdeinit5_konqueror.so
-/V3/usr/lib64/libkonqsidebarplugin.so.23.04.3
-/V3/usr/lib64/libkonquerorprivate.so.23.04.3
+/V3/usr/lib64/libkonqsidebarplugin.so.23.08.0
+/V3/usr/lib64/libkonquerorprivate.so.23.08.0
 /V3/usr/lib64/qt5/plugins/akregatorkonqfeedicon.so
 /V3/usr/lib64/qt5/plugins/autorefresh.so
 /V3/usr/lib64/qt5/plugins/babelfishplugin.so
@@ -927,6 +942,7 @@ popd
 /V3/usr/lib64/qt5/plugins/konqueror_kcms/khtml_filter.so
 /V3/usr/lib64/qt5/plugins/konqueror_kcms/khtml_general.so
 /V3/usr/lib64/qt5/plugins/konqueror_kcms/khtml_java_js.so
+/V3/usr/lib64/qt5/plugins/konqueror_kcms/khtml_useragent.so
 /V3/usr/lib64/qt5/plugins/konqueror_kget_browser_integration.so
 /V3/usr/lib64/qt5/plugins/uachangerplugin.so
 /V3/usr/lib64/qt5/plugins/webarchiverplugin.so
@@ -935,9 +951,9 @@ popd
 /usr/lib64/libKF5Konq.so.6
 /usr/lib64/libkdeinit5_kfmclient.so
 /usr/lib64/libkdeinit5_konqueror.so
-/usr/lib64/libkonqsidebarplugin.so.23.04.3
+/usr/lib64/libkonqsidebarplugin.so.23.08.0
 /usr/lib64/libkonqsidebarplugin.so.5
-/usr/lib64/libkonquerorprivate.so.23.04.3
+/usr/lib64/libkonquerorprivate.so.23.08.0
 /usr/lib64/libkonquerorprivate.so.5
 /usr/lib64/qt5/plugins/akregatorkonqfeedicon.so
 /usr/lib64/qt5/plugins/autorefresh.so
@@ -974,6 +990,7 @@ popd
 /usr/lib64/qt5/plugins/konqueror_kcms/khtml_filter.so
 /usr/lib64/qt5/plugins/konqueror_kcms/khtml_general.so
 /usr/lib64/qt5/plugins/konqueror_kcms/khtml_java_js.so
+/usr/lib64/qt5/plugins/konqueror_kcms/khtml_useragent.so
 /usr/lib64/qt5/plugins/konqueror_kget_browser_integration.so
 /usr/lib64/qt5/plugins/kwebkitpart/kpartplugins/akregatorkonqfeediconkwebkitpart_kpartplugins.so
 /usr/lib64/qt5/plugins/kwebkitpart/kpartplugins/autorefreshkwebkitpart_kpartplugins.so
