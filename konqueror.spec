@@ -6,11 +6,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : konqueror
-Version  : 23.08.0
-Release  : 60
-URL      : https://download.kde.org/stable/release-service/23.08.0/src/konqueror-23.08.0.tar.xz
-Source0  : https://download.kde.org/stable/release-service/23.08.0/src/konqueror-23.08.0.tar.xz
-Source1  : https://download.kde.org/stable/release-service/23.08.0/src/konqueror-23.08.0.tar.xz.sig
+Version  : 23.08.1
+Release  : 61
+URL      : https://download.kde.org/stable/release-service/23.08.1/src/konqueror-23.08.1.tar.xz
+Source0  : https://download.kde.org/stable/release-service/23.08.1/src/konqueror-23.08.1.tar.xz
+Source1  : https://download.kde.org/stable/release-service/23.08.1/src/konqueror-23.08.1.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : BSD-2-Clause BSD-3-Clause GFDL-1.2 GPL-2.0 GPL-3.0 LGPL-2.0 LGPL-2.1 LGPL-3.0
@@ -104,15 +104,15 @@ locales components for the konqueror package.
 
 
 %prep
-%setup -q -n konqueror-23.08.0
-cd %{_builddir}/konqueror-23.08.0
+%setup -q -n konqueror-23.08.1
+cd %{_builddir}/konqueror-23.08.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1693003549
+export SOURCE_DATE_EPOCH=1695070096
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -145,7 +145,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1693003549
+export SOURCE_DATE_EPOCH=1695070096
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/konqueror
 cp %{_builddir}/konqueror-%{version}/LICENSES/BSD-2-Clause.txt %{buildroot}/usr/share/package-licenses/konqueror/ea97eb88ae53ec41e26f8542176ab986d7bc943a || :
@@ -913,8 +913,8 @@ popd
 /V3/usr/lib64/libKF5Konq.so.5.97.0
 /V3/usr/lib64/libkdeinit5_kfmclient.so
 /V3/usr/lib64/libkdeinit5_konqueror.so
-/V3/usr/lib64/libkonqsidebarplugin.so.23.08.0
-/V3/usr/lib64/libkonquerorprivate.so.23.08.0
+/V3/usr/lib64/libkonqsidebarplugin.so.23.08.1
+/V3/usr/lib64/libkonquerorprivate.so.23.08.1
 /V3/usr/lib64/qt5/plugins/akregatorkonqfeedicon.so
 /V3/usr/lib64/qt5/plugins/autorefresh.so
 /V3/usr/lib64/qt5/plugins/babelfishplugin.so
@@ -951,9 +951,9 @@ popd
 /usr/lib64/libKF5Konq.so.6
 /usr/lib64/libkdeinit5_kfmclient.so
 /usr/lib64/libkdeinit5_konqueror.so
-/usr/lib64/libkonqsidebarplugin.so.23.08.0
+/usr/lib64/libkonqsidebarplugin.so.23.08.1
 /usr/lib64/libkonqsidebarplugin.so.5
-/usr/lib64/libkonquerorprivate.so.23.08.0
+/usr/lib64/libkonquerorprivate.so.23.08.1
 /usr/lib64/libkonquerorprivate.so.5
 /usr/lib64/qt5/plugins/akregatorkonqfeedicon.so
 /usr/lib64/qt5/plugins/autorefresh.so
