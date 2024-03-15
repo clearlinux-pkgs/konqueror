@@ -9,7 +9,7 @@
 #
 Name     : konqueror
 Version  : 24.02.0
-Release  : 67
+Release  : 68
 URL      : https://download.kde.org/stable/release-service/24.02.0/src/konqueror-24.02.0.tar.xz
 Source0  : https://download.kde.org/stable/release-service/24.02.0/src/konqueror-24.02.0.tar.xz
 Source1  : https://download.kde.org/stable/release-service/24.02.0/src/konqueror-24.02.0.tar.xz.sig
@@ -19,6 +19,7 @@ License  : BSD-2-Clause BSD-3-Clause GFDL-1.2 GPL-2.0 GPL-3.0 LGPL-2.0 LGPL-2.1 
 Requires: konqueror-bin = %{version}-%{release}
 Requires: konqueror-data = %{version}-%{release}
 Requires: konqueror-lib = %{version}-%{release}
+Requires: konqueror-license = %{version}-%{release}
 Requires: konqueror-locales = %{version}-%{release}
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
@@ -56,6 +57,7 @@ browser engine, such as KHTML, to browse the web in Konqueror.
 Summary: bin components for the konqueror package.
 Group: Binaries
 Requires: konqueror-data = %{version}-%{release}
+Requires: konqueror-license = %{version}-%{release}
 
 %description bin
 bin components for the konqueror package.
@@ -94,9 +96,18 @@ doc components for the konqueror package.
 Summary: lib components for the konqueror package.
 Group: Libraries
 Requires: konqueror-data = %{version}-%{release}
+Requires: konqueror-license = %{version}-%{release}
 
 %description lib
 lib components for the konqueror package.
+
+
+%package license
+Summary: license components for the konqueror package.
+Group: Default
+
+%description license
+license components for the konqueror package.
 
 
 %package locales
@@ -116,7 +127,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1710511574
+export SOURCE_DATE_EPOCH=1710514170
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -177,7 +188,7 @@ FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS"
 FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
 ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
 LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
-export SOURCE_DATE_EPOCH=1710511574
+export SOURCE_DATE_EPOCH=1710514170
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/konqueror
 cp %{_builddir}/konqueror-%{version}/LICENSES/BSD-2-Clause.txt %{buildroot}/usr/share/package-licenses/konqueror/ea97eb88ae53ec41e26f8542176ab986d7bc943a || :
@@ -331,6 +342,15 @@ popd
 /usr/share/konqueror/pics/indicator_empty.png
 /usr/share/konqueror/pics/indicator_noconnect.png
 /usr/share/konqueror/pics/indicator_viewactive.png
+/usr/share/metainfo/org.kde.konqueror.appdata.xml
+/usr/share/qlogging-categories6/akregatorplugin.categories
+/usr/share/qlogging-categories6/fsview.categories
+/usr/share/qlogging-categories6/konqueror.categories
+/usr/share/webenginepart/error.html
+/usr/share/xdg/autostart/konqy_preload.desktop
+/usr/share/xdg/konqsidebartngrc
+/usr/share/xdg/translaterc
+/usr/share/xdg/useragenttemplatesrc
 
 %files dev
 %defattr(-,root,root,-)
@@ -937,6 +957,19 @@ popd
 /usr/lib64/qt6/plugins/webenginepart/kpartplugins/konqueror_kget_browser_integrationwebenginepart_kpartplugins.so
 /usr/lib64/qt6/plugins/webenginepart/kpartplugins/uachangerpluginwebenginepart_kpartplugins.so
 /usr/lib64/qt6/plugins/webenginepart/kpartplugins/webarchiverpluginwebenginepart_kpartplugins.so
+
+%files license
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/konqueror/19d98e1b6f8ef12849ea4012a052d3907f336c91
+/usr/share/package-licenses/konqueror/2123756e0b1fc8243547235a33c0fcabfe3b9a51
+/usr/share/package-licenses/konqueror/3e8971c6c5f16674958913a94a36b1ea7a00ac46
+/usr/share/package-licenses/konqueror/7d9831e05094ce723947d729c2a46a09d6e90275
+/usr/share/package-licenses/konqueror/81b58c89ceef8e9f8bd5d00a287edbd15f9d3567
+/usr/share/package-licenses/konqueror/a4c60b3fefda228cd7439d3565df043192fef137
+/usr/share/package-licenses/konqueror/bd75d59f9d7d9731bfabdc48ecd19e704d218e38
+/usr/share/package-licenses/konqueror/e458941548e0864907e654fa2e192844ae90fc32
+/usr/share/package-licenses/konqueror/ea97eb88ae53ec41e26f8542176ab986d7bc943a
+/usr/share/package-licenses/konqueror/f1946dab78e58c04c8c25ec6b074f5fc5c2830fe
 
 %files locales -f babelfish.lang -f dirfilterplugin.lang -f imgalleryplugin.lang -f kcmbookmarks.lang -f kcmkonq.lang -f kcmkonqhtml.lang -f kcmperformance.lang -f kfmclient.lang -f kgetplugin.lang -f khtmlsettingsplugin.lang -f khtmltts.lang -f konqueror.lang -f kshellcmdplugin.lang -f libkonq.lang -f uachangerplugin.lang -f akregator_konqplugin.lang -f autorefresh.lang -f fsview.lang -f kio6_bookmarks.lang -f searchbarplugin.lang -f webenginepart.lang -f webarchiver.lang
 %defattr(-,root,root,-)
